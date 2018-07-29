@@ -1,2 +1,2 @@
 python-notes
-This folder is used for priliminary python learning~
+This folder is used for preliminary python learning~
