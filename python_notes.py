@@ -69,7 +69,10 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
   Package: a collection of modules.
   how to use: import modules/package # or 
               from modules/package import variables, functions, classes
-  Import them and then help(modules/package name) or dir(modules/package name) to get further information about included variables, functions, classes and usage.
+  Import them and then help(modules/package name) or dir(modules/package name) 
+  to get further information about included variables, functions, classes and usage.
+  Just use help() then find the required module, 
+  type quit then Enter to leave the help system and return to the python shell.
 
 
 8. Objects in Python: attributes, methods, properties. For example, .real, .imag, .conjugate(), .append(), .sort().
