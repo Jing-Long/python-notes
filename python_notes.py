@@ -4,7 +4,7 @@ In terminal: python --version # to check the python version most people still us
 
 0. The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 
-Documentation strings: """ string """, use help(functionname) to see this string.
+
 
 Make a file executable: chmod +x filename.py
 
@@ -28,7 +28,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   type     value
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
-	   float    floating-point number (have limited range and precision) special values: +inf, -inf, nan.
+	   float    floating-point number (have limited range and precision, == can fail) special values: +inf, -inf, nan.
 	   bool     truth values
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
@@ -82,6 +82,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
    	   In python 3, print (sth)
 	   In python 2, print sth
 	   def function_name(parameters):  # define function
+	       """ string """ # function docstring, use help(functionname) to see this string, use as description
                some local variables or operation
                return expression with parameters # parameters and variables that created in a function are local.
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
@@ -92,7 +93,8 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   Keyword arguments: ** kwargs  
 	   Function names can be letters, numbers and underscore but the first character cannot me a number. 
            Function names cannot be the python's keywords. Avoid to define function and variable with the same name.
-           Function names are case sensitive.      
+           Function names are case sensitive. 
+           
 
 
 
