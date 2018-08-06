@@ -8,23 +8,77 @@ Documentation strings: """ string """, use help(functionname) to see this string
 
 Make a file executable: chmod +x filename.py
 
-For integer: 027 = 23 # because this number with base of 8 rather than 10
-For decimal: 027.= 27.0 # this number is still with base of 10
 
+get the current work directory: 
+import os 
+os.getcwd( )
 
+whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
+            At other times, whitespace is ignored.
+            
+Indent can be a tab or any spaces>=1, but the convention is 4 spaces.
 
-1. Operators: ** # exponent
-           != # not equal to
+Continuation: add a \ at the end makes the statement continue onto the next line
+	
+1. Expressions:
+	a. constants
+	
+	   type     value
+   	   int      integer (no inherent size limit but the computer may crash if the number is too big)
+	   str      string (enclosed in single or double quote marks, must match.
+	   float    floating-point number (have limited range and precision) special values: +inf, -inf, nan.
+	   bool     truth values
+	   For integer: 027 = 23 # because this number with base of 8 rather than 10
+	   For decimal: 027.= 27.0 # this number is still with base of 10
+	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, so it is better to do this in the code: from future import division, then we can use division directly: 10/3=3.3333333333333335. In python 3, the type of 3/1 is float.  
+	   In python 3.x, the result of division is always a float. type(4/2) is float.
+	   Floats can be written in scientific notation: 1e30 mean 1*10^{30}, but it is a float. 
+		 
+ 	   Type conversion: 
+		 input        output
+		int ('32')      32  Conversion from str to number only works if the string contains only a numberic literal
+		int (32)        32
+		int (3.8)       3   int does not round off, it just chops off the fraction part
+		float(32）      32.0
+		float('3.14')   3.14 Conversion from str to number only works if the string contains only a numberic literal
+		str(32)         '32'  
+		str('32')       '32'
+	b. variables:
+		      Variable name cannot begin with a number but begin with a letter or underscore.
+		      Variable name cannot use Python's keywords: 
+				False class finally is return None continue for lambda try True def from nonlocal while
+				and del global not with as elif if or yield assert else import pass break except in raise
+		      Variable name is case sensitive.	
+		      A variable assignment is written as variable_name=expression # this is a statement
+				
+	c. Operators: 
+	   numeric operators:
+	   ** # exponent
            // # truncating division. For example, 5//2=2.
            %  # modulo (remainder after division). For example, 5%2=1
+	   -  cannot work on string
+	   /  cannot work on string
+	   +  is string concatenation, which means join the strings end-to-end
+	   *  works in the form of 'string'*integer for repetition of string	      
 	   += # For example: x+=2 is equivalent to x=x+2
-	   -=, /=, *=, **=, %=, ==, <, >, <=, >=.
-In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, so it is better to do this in the code: from future import division, then we can use division directly: 10/3=3.3333333333333335. In python 3, the type of 3/1 is float.  
+	   -=, /=, *=, **=, %=.
+ 	   comparison operators:
+	   <, >, <=, >= # ordering
+	   == # equality     
+           != # not equal to
+	   can compare two values of the same type, return True or False (type bool).      
+	   logical operators: 
+	   or, and, not. Boolean values: bool, True, False.
+	   Set undecided or no value: None
+	  
+	d. function calls
+	   All most all math functions take and return values of type float.
+	   print function convert all arguments to type str before printing.
+   	   In python 3, print (sth)
+	   In python 2, print sth
+		      
 
 
-Logical operators: or, and, not. Boolean values: bool, True, False.
-
-Set undecided or no value: None
 
 2. Container types: tuple(), can not be changed once created, commonly used in functions.
 	         list[], use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
