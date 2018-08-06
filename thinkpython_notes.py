@@ -1,8 +1,4 @@
 Ch1.
-class    type
-int      integer
-str       string
-float    floating-point number
 
 In python 3, print (sth)
 In python 2, print sth
@@ -18,20 +14,8 @@ as elif if or yield
 assert else import pass
 break except in raise
 
--  cannot work on string
-/  cannot work on string
-+  is string concatenation, which means join the strings end-to-end
-*  works in the form of 'string'*integer for repetition of string
-
 Ch3. Functions
-input       output
-int ('32')     32
-int (32)       32
-int (3.8)      3     int does not round off, it just chops off the fraction part
-float(32）  32.0
-float('3.14')   3.14
-str(32)        '32'
-str('32')      '32'
+
 
 log is ln
 log10 is lg
