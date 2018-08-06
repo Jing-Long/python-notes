@@ -17,7 +17,9 @@ whitespace: spaces, tab, end-of-line are whitespace and they are used to show th
             At other times, whitespace is ignored.
             
 Indent can be a tab or any spaces>=1, but the convention is 4 spaces.
-
+Single and double quotes are the same in python, double quotes are useful when there is an apostrophe in the string. 
+Straight quotes ' ' " " are legal in python
+Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
 	
 1. Expressions:
@@ -25,9 +27,10 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	
 	   type     value
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
-	   str      string (enclosed in single or double quote marks, must match.
+	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number (have limited range and precision) special values: +inf, -inf, nan.
 	   bool     truth values
+	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
 	   For decimal: 027.= 27.0 # this number is still with base of 10
 	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, so it is better to do this in the code: from future import division, then we can use division directly: 10/3=3.3333333333333335. In python 3, the type of 3/1 is float.  
@@ -52,6 +55,8 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 		      A variable assignment is written as variable_name=expression # this is a statement
 				
 	c. Operators: 
+	   log is ln
+           log10 is lg      
 	   numeric operators:
 	   ** # exponent
            // # truncating division. For example, 5//2=2.
@@ -76,7 +81,18 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   print function convert all arguments to type str before printing.
    	   In python 3, print (sth)
 	   In python 2, print sth
-		      
+	   def function_name(parameters):  # define function
+               some local variables or operation
+               return expression with parameters # parameters and variables that created in a function are local.
+	   When call the function: function_name(arguments) # arguments can be expressions and functions
+    	   If there is no return, the function call returns None, but it is not shown in interactive mode.
+           The name of the argument has nothing to do with the name of the parameter. 
+           The number of parameters and arguments should match.
+	   Arguments: *args
+	   Keyword arguments: ** kwargs  
+	   Function names can be letters, numbers and underscore but the first character cannot me a number. 
+           Function names cannot be the python's keywords. Avoid to define function and variable with the same name.
+           Function names are case sensitive.      
 
 
 
@@ -98,14 +114,11 @@ Code Defensively – assert # make sure input data is not empty
 List comprehension can minimize the loop, for example: a = range(1,50+1) 
                                                        b = [x for x in a if x % 2 == 0] # even numbers only
 
-4. Functions: def function_name(parameters):  # define function
-               some local variables or operation
-               return expression with parameters
 
-             function_name(values) # to use the defined function
 
-Arguments: *args
-Keyword arguments: ** kwargs
+
+
+
 
 
 5. Control Flow: conditional statements: if, elif, else.
