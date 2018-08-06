@@ -58,7 +58,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   log is ln
            log10 is lg      
 	   numeric operators:
-	   ** # exponent
+	   ** # exponentiation has higher precedence than multiplication
            // # truncating division. For example, 5//2=2.
            %  # modulo (remainder after division). For example, 5%2=1
 	   -  cannot work on string
@@ -85,6 +85,8 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	       """ string """ # function docstring, use help(functionname) to see this string, use as description
                some local variables or operation
                return expression with parameters # parameters and variables that created in a function are local.
+		                 # a function can contain multiple return statements (and also no return statement).
+
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
            The name of the argument has nothing to do with the name of the parameter. 
