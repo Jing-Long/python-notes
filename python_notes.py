@@ -67,13 +67,13 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   *  works in the form of 'string'*integer for repetition of string	      
 	   += # For example: x+=2 is equivalent to x=x+2
 	   -=, /=, *=, **=, %=.
- 	   comparison operators:
+ 	   comparison operators: #lower precedence than arithmetic operators
 	   <, >, <=, >= # ordering
-	   == # equality     
+	   == # equality, do not use this on floats
            != # not equal to
 	   can compare two values of the same type, return True or False (type bool).      
-	   logical operators: 
-	   or, and, not. Boolean values: True, False. Do not use +, -, *, etc, on them.
+	   logical (Boolean) operators: #lower precedence than comparison operators
+	   or, and, not are used to combine Boolean values: True, False. Do not use +, -, *, etc, on them.
 	   Set undecided or no value: None
 	  
 	d. function calls
