@@ -29,7 +29,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number (have limited range and precision, == can fail) special values: +inf, -inf, nan.
-	   bool     truth values
+	   bool     truth values: False True
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
 	   For decimal: 027.= 27.0 # this number is still with base of 10
@@ -73,7 +73,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
            != # not equal to
 	   can compare two values of the same type, return True or False (type bool).      
 	   logical operators: 
-	   or, and, not. Boolean values: bool, True, False.
+	   or, and, not. Boolean values: True, False. Do not use +, -, *, etc, on them.
 	   Set undecided or no value: None
 	  
 	d. function calls
@@ -83,9 +83,10 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   In python 2, print sth
 	   def function_name(parameters):  # define function
 	       """ string """ # function docstring, use help(functionname) to see this string, use as description
-               some local variables or operation
+               some local variables or operation # at least one statement
+	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
-		                 # a function can contain multiple return statements (and also no return statement).
+	       # a function can contain multiple return statements (and also no return statement).
 
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
