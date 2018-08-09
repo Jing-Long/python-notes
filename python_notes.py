@@ -24,11 +24,11 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	
 1. Expressions:
 	a. constants
-	
 	   type     value
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
-	   float    floating-point number (have limited range and precision, == can fail) special values: +inf, -inf, nan.
+	   float    floating-point number (have limited range and precision, == can fail even for 0.1+0.2==0.3) 
+	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
 	   bool     truth values: False True
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
@@ -59,8 +59,12 @@ Continuation: add a \ at the end makes the statement continue onto the next line
            log10 is lg      
 	   numeric operators:
 	   ** # exponentiation has higher precedence than multiplication
-           // # truncating division. For example, 5//2=2.
-           %  # modulo (remainder after division). For example, 5%2=1
+           // # truncating/integer/floor division. For example, 5//2=2.
+           %  # modulus (remainder after division). For example, 5%2=1
+	      #10//3==3, 10%3==1; -10//3==-4, -10%3==2; 10//-3==-4, 10%-3==-2; -10//-3==3, -10%-3==-1
+	      Rule: For any two numbers a and b, if q = a // b and r = a % b 
+		    then it should be true that (q * b) + r == a and that r is “between” 0 and b 
+		    (when b is positive, that means 0 <= r < b; if b is negative, it means b < r <= 0).
 	   -  cannot work on string
 	   /  cannot work on string
 	   +  is string concatenation, which means join the strings end-to-end
