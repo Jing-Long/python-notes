@@ -59,12 +59,14 @@ Continuation: add a \ at the end makes the statement continue onto the next line
            log10 is lg      
 	   numeric operators:
 	   ** # exponentiation has higher precedence than multiplication
-           // # truncating/integer/floor division. For example, 5//2=2.
+           // # truncating/integer/floor division. For example, 5//2=2. -10/3=-3.33333 takes the floor of -3.33333 is -4.
            %  # modulus (remainder after division). For example, 5%2=1
 	      #10//3==3, 10%3==1; -10//3==-4, -10%3==2; 10//-3==-4, 10%-3==-2; -10//-3==3, -10%-3==-1
-	      Rule: For any two numbers a and b, if q = a // b and r = a % b 
+	      Rule: For any two numbers a and b, if q = a // b and r = a % b, sign(a%b)==sign(b),
 		    then it should be true that (q * b) + r == a and that r is “between” 0 and b 
 		    (when b is positive, that means 0 <= r < b; if b is negative, it means b < r <= 0).
+		     number axis  -5 -4 -3 -2 -1  0  1  2  3  4  5  
+		     python %3     1  2  0  1  2  0  1  2  0  1  2 # it is more convenient in python for array, like [-1]
 	   -  cannot work on string
 	   /  cannot work on string
 	   +  is string concatenation, which means join the strings end-to-end
