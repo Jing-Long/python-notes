@@ -66,7 +66,7 @@ def unstack_tower_of_three():
     # Move to the right-most stack
     right_two_spaces()
     right_two_spaces()
-    # and do the unstacking manoeuvre twice
+    # and do the unstacking manoeuvre
     unstack_to_the_left()
     robot.lift_up()
     robot.gripper_to_closed()
