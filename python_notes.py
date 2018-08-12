@@ -4,11 +4,8 @@ In terminal: python --version # to check the python version most people still us
 
 0. The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 
-
-
 Make a file executable: chmod +x filename.py
-
-
+	
 get the current work directory: 
 import os 
 os.getcwd( )
@@ -21,6 +18,8 @@ Single and double quotes are the same in python, double quotes are useful when t
 Straight quotes ' ' " " are legal in python
 Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
+\n: line break
+input()
 	
 1. Expressions:
 	a. constants
@@ -29,7 +28,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number (have limited range and precision, == can fail even for 0.1+0.2==0.3) 
 	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
-	   bool     truth values: False True
+	   bool     truth values: False True. Do not use +, -, *, etc, on them.
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
 	   For decimal: 027.= 27.0 # this number is still with base of 10
@@ -60,6 +59,7 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 	   numeric operators:
 	   ** # exponentiation has higher precedence than multiplication
            // # truncating/integer/floor division. For example, 5//2=2. -10/3=-3.33333 takes the floor of -3.33333 is -4.
+	      # divides two numbers and rounds down (toward negative infinity) to an integer.
            %  # modulus (remainder after division). For example, 5%2=1
 	      #10//3==3, 10%3==1; -10//3==-4, -10%3==2; 10//-3==-4, 10%-3==-2; -10//-3==3, -10%-3==-1
 	      Rule: For any two numbers a and b, if q = a // b and r = a % b, sign(a%b)==sign(b),
@@ -67,19 +67,24 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 		    (when b is positive, that means 0 <= r < b; if b is negative, it means b < r <= 0).
 		     number axis  -5 -4 -3 -2 -1  0  1  2  3  4  5  
 		     python %3     1  2  0  1  2  0  1  2  0  1  2 # it is more convenient in python for array, like [-1]
+	      Usage: can extract the right-most digit or digits from a number. 
+		     For example, x % 10 yields the right-most digit of x (in base 10) and x % 100 yields the last two digits.
 	   -  cannot work on string
 	   /  cannot work on string
 	   +  is string concatenation, which means join the strings end-to-end
 	   *  works in the form of 'string'*integer for repetition of string	      
 	   += # For example: x+=2 is equivalent to x=x+2
 	   -=, /=, *=, **=, %=.
- 	   comparison operators: #lower precedence than arithmetic operators
+		      
+ 	   comparison/relational operators: #lower precedence than arithmetic operators
 	   <, >, <=, >= # ordering
 	   == # equality, do not use this on floats
            != # not equal to
-	   can compare two values of the same type, return True or False (type bool).      
+	   can compare two values of the same type, return True or False (type bool). 
+		      
 	   logical (Boolean) operators: #lower precedence than comparison operators
-	   or, and, not are used to combine Boolean values: True, False. Do not use +, -, *, etc, on them.
+	   or, and, not are used to combine Boolean values: True, False. Any nonzero number is interpreted as True as well.
+		     
 	   Set undecided or no value: None
 	  
 	d. function calls
@@ -127,7 +132,11 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 
 
 5. Control Flow:
-	      conditional statements (branching): if, elif, else.
+	      conditional statements (branching): 
+		      	      if
+		      	      elif # abbreviation of “else if”
+		              else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
+		      	      Avoid nested conditonals to make code easier to be understood.
 	      loop statement (iteration):
 		              for i in range(integer number): #iterates through the elements of a collection 
                               while i < number: # Repeats a suite of statements as long as a condition is true.
