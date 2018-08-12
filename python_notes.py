@@ -126,15 +126,14 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
                                                        b = [x for x in a if x % 2 == 0] # even numbers only
 
 
-
-
-
-
-
-
-5. Control Flow: conditional statements: if, elif, else.
-	      loop statement: for i in range(integer number):
-                              while i < number:
+5. Control Flow:
+	      conditional statements (branching): if, elif, else.
+	      loop statement (iteration):
+		              for i in range(integer number): #iterates through the elements of a collection 
+                              while i < number: # Repeats a suite of statements as long as a condition is true.
+		    				# If the condition is initially False, the loop executes zero times.
+						# If no variable involved in the condition is changed or updated can 
+		                                # make the condition false during execution, the loop will continue forever.
 	                      break # break out of the loop
                               continue # continue from the beginning of loop
 			      pass # null operation, act as a placeholder
