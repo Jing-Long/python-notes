@@ -112,7 +112,8 @@ input()
 
 
 
-2. Container types: tuple(), can not be changed once created, commonly used in functions.
+2. Container types: 
+		 tuple(), can not be changed once created, commonly used in functions.
 	         list[], use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
                  set([]), no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}			
@@ -130,7 +131,19 @@ Code Defensively – assert # make sure input data is not empty
 List comprehension can minimize the loop, for example: a = range(1,50+1) 
                                                        b = [x for x in a if x % 2 == 0] # even numbers only
 
-
+4. Sequence: index[must be integer]
+	     len() # check the length
+ 	     string[len(string)-1] or string[-1] gives the last character
+	     traversal: for letter in string:
+		            print (letter)
+	     slice: string[n:m] # returns the part of the string from the “n-eth” character to the “m-eth” character,
+		                # including the first but excluding the last.
+		      		# If n>=m. returns empty string: ''.
+		    string[:m] # the slice starts at the beginning of the string.
+		    string[n:] # the slice goes to the end of the string
+		    string[:] # returns the whole string
+		      
+		      
 5. Control Flow:
 	      conditional statements (branching): 
 		      	      if
