@@ -133,6 +133,7 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 
 4. Sequence: index[must be integer]
 	     len() # check the length
+	     strings are immutable.
  	     string[len(string)-1] or string[-1] gives the last character
 	     traversal: for letter in string:
 		            print (letter)
