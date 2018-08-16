@@ -131,7 +131,8 @@ Code Defensively – assert # make sure input data is not empty
 List comprehension can minimize the loop, for example: a = range(1,50+1) 
                                                        b = [x for x in a if x % 2 == 0] # even numbers only
 
-4. Sequence: index[must be integer]
+4. Sequence: contain zero or more values.
+	     index[must be integer]
 	     len() # check the length
 	     strings are immutable.
  	     string[len(string)-1] or string[-1] gives the last character
