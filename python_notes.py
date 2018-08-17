@@ -71,7 +71,7 @@ input()
 		     For example, x % 10 yields the right-most digit of x (in base 10) and x % 100 yields the last two digits.
 	   -  cannot work on string
 	   /  cannot work on string
-	   +  is string concatenation, which means join the strings end-to-end
+	   +  plus, can also work as string concatenation, which means join the strings end-to-end. only + same types
 	   *  works in the form of 'string'*integer for repetition of string	      
 	   += # For example: x+=2 is equivalent to x=x+2
 	   -=, /=, *=, **=, %=.
@@ -113,7 +113,7 @@ input()
 
 
 2. Container types: 
-		 tuple(), can not be changed once created, commonly used in functions.
+		 tuple(), commonly used in functions.
 	         list[], use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
                  set([]), no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}			
@@ -131,11 +131,14 @@ Code Defensively – assert # make sure input data is not empty
 List comprehension can minimize the loop, for example: a = range(1,50+1) 
                                                        b = [x for x in a if x % 2 == 0] # even numbers only
 
-4. Sequence: contain zero or more values.
-	     index[must be integer]
-	     len() # check the length
-	     strings are immutable.
- 	     string[len(string)-1] or string[-1] gives the last character
+4. Sequence: contains zero or more values. Each value has an index: sequence[index].
+	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
+	     len(sequence) # returns the sequence length
+	     string: contain only text, immutable. # string[len(string)-1] or string[-1] gives the last character
+	     list[]: can contain a mix of value types. [,,,]
+	     tuple(): like lists but immutable (can not be changed once created).
+	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
+		           np.array([,,,]), np.zeros(size), np.ones(size)*number, no.linspace(start,end,size)
 	     traversal: for letter in string:
 		            print (letter)
 	     slice: string[n:m] # returns the part of the string from the “n-eth” character to the “m-eth” character,
@@ -151,6 +154,7 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 		      	      if
 		      	      elif # abbreviation of “else if”
 		              else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
+		      		   # If there is no indent, the else matchs with the closest if above.
 		      	      Avoid nested conditonals to make code easier to be understood.
 	      loop statement (iteration):
 		              for i in range(integer number): #iterates through the elements of a collection 
@@ -158,6 +162,7 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 		    				# If the condition is initially False, the loop executes zero times.
 						# If no variable involved in the condition is changed or updated can 
 		                                # make the condition false during execution, the loop will continue forever.
+		      				# It is frequently used when the repetition times are unknown.
 	                      break # break out of the loop
                               continue # continue from the beginning of loop
 			      pass # null operation, act as a placeholder
@@ -190,7 +195,7 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
 
 
 11. NumPy: import numpy as np 
-          Array:
+          Array: fast math operations on arrays/matrices
                 a.To create an array: np,array([,,,]), np.arange(integer_number), np.linspace(start value, end value, numbers), np.zeros(integer number), np.ones(integer number).
    		b.Multidimensional array: For example x=np.zeros((2,4)) # get 2X4 array of zeros.
                                        x[0,:] # get the first row of x
@@ -199,7 +204,7 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
                 	        np.random.normal(size=integer_number) # standard nornal distributed
 		 		np.random.randint(low=, high=, size= ) # rando, integers
    		d. .dtype # check the data type
-	  
+	  	e. plotting: matplotlib
 	  Read data: y=np.loadtxt('x.txt')
           Write data: np.savetxt('x.txt', x)
 
