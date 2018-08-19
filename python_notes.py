@@ -20,7 +20,8 @@ Curly quotes  ‘ ’ “ ” are not.
 Continuation: add a \ at the end makes the statement continue onto the next line
 \n: line break
 input()
-	
+Exception handling: try, except, else, finally. # to catch the abnormal actions 
+
 1. Expressions:
 	a. constants
 	   type     value
@@ -52,6 +53,10 @@ input()
 				and del global not with as elif if or yield assert else import pass break except in raise
 		      Variable name is case sensitive.	
 		      A variable assignment is written as variable_name=expression # this is a statement
+		      Naming conventions: i, j, k are often used for loop indices.
+		      			  n, m, k are often used for counts.
+		      			  x, y and z are often used for coordinates.
+		      			
 				
 	c. Operators: 
 	   log is ln
@@ -93,7 +98,9 @@ input()
    	   In python 3, print (sth)
 	   In python 2, print sth
 	   def function_name(parameters):  # define function
-	       """ string """ # function docstring, use help(functionname) to see this string, use as description
+	       """ string """ # function docstring, the first statement inside a function (module, class) definition.
+		              # State the purpose and limitations of the function, parameters and return value.
+		      	      # use help(functionname) to see this string, use for description and assumptions.
                some local variables or operation # at least one statement
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
@@ -108,8 +115,7 @@ input()
 	   Function names can be letters, numbers and underscore but the first character cannot me a number. 
            Function names cannot be the python's keywords. Avoid to define function and variable with the same name.
            Function names are case sensitive. 
-           
-
+           * A good function (usually) does one thing and should be general. Functions promote abstraction, reduce code repetition.
 
 
 2. Container types: 
@@ -166,7 +172,7 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 		      	      Avoid nested conditonals to make code easier to be understood.
 	      loop statement (iteration):
 		              for i in range(integer number): #iterates through the elements of a collection 
-                              while i < number: # Repeats a suite of statements as long as a condition is true.
+                              while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
 		    				# If the condition is initially False, the loop executes zero times.
 						# If no variable involved in the condition is changed or updated can 
 		                                # make the condition false during execution, the loop will continue forever.
@@ -176,8 +182,16 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 			      pass # null operation, act as a placeholder
 
 Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [0.0, 0.2, 0.4, 0.6000000000000001, 0.8]
-
-6. Exception handling: try, except, else, finally. # to catch the abnormal actions 
+		 
+6. Code testing and debugging: 
+		edge cases: - Integers: 0, 1, -1, 2, ...
+			   - float: very small (1e-308) or big (1e308)
+			   - Sequences: empty (’’, []), length one.
+			   - Any value that requires special treatment in the code.
+		Assertion: assert test expression, "error message" # check the whether the variable is valid before run the code
+		           # The assert statement causes a runtime error if test expression evaluates to False.
+		      
+ 
 
 7. Modules: a collection of functions and variables.
   Package: a collection of modules.
