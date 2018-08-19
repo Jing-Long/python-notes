@@ -139,14 +139,22 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 	     tuple(): like lists but immutable (can not be changed once created).
 	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
 		           np.array([,,,]), np.zeros(size), np.ones(size)*number, no.linspace(start,end,size)
+	     Warning： For list, list[]+list[] is just the concatenation of two lists.
+		       For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
+		       For ndarray, the operation is done for each element in an array or paries of elements at equal positionn in two arrays.
+		       For example, array([1,2])+np.array([3,4])==array([4, 6]), np.array([1,2])*2==array([2, 4]), np.array([1,2])+2==array([3, 4]).
 	     traversal: for letter in string:
 		            print (letter)
-	     slice: string[n:m] # returns the part of the string from the “n-eth” character to the “m-eth” character,
-		                # including the first but excluding the last.
+	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
+		    string[n:m] # returns the part of the string from the “n-eth” character to the “m-eth” character,
+		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
 		    string[:m] # the slice starts at the beginning of the string.
 		    string[n:] # the slice goes to the end of the string
 		    string[:] # returns the whole string
+		    Unique to NumPy arrays: 
+		      - Indexing with an array of integers selects elements from the positions in the index array.
+		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
 		      
 		      
 5. Control Flow:
