@@ -105,6 +105,8 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
+	       # Without return, the output in None, the expression return print(...) will always return None as well because
+	       # print is a function. It has the side effect of printing the arguments to the console, but it returns None. 
 
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
