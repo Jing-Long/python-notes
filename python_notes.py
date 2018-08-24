@@ -29,6 +29,8 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number (have limited range and precision, == can fail even for 0.1+0.2==0.3) 
 	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
+		    inf is not a pre-defined variable but it can be got by float('inf'). 
+		    float('inf') / 10 == inf, float('inf') // 10 == nan.
 	   bool     truth values: False True. Do not use +, -, *, etc, on them.
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
