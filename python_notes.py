@@ -18,7 +18,7 @@ Single and double quotes are the same in python, double quotes are useful when t
 Straight quotes ' ' " " are legal in python
 Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
-\n: line break
+
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
 
@@ -146,21 +146,24 @@ data = file.read()
 
 Code Defensively – assert # make sure input data is not empty
 
-4. Sequence: contains zero or more values. Each value has an integer index: sequence[index].
+4. Sequence: contains zero or more values. Each value has an integer index: sequence[index]. Iterable data type.
 	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
 	     len(sequence) # returns the sequence length
-	     string: contain only text, immutable. # string[len(string)-1] or string[-1] gives the last character
+	     string: contain only text-a sequence of characters, immutable. # string[len(string)-1] or string[-1] gives the last character
+		     write as 'string', "string", '''string'''.
+		      1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
+		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): ’it\’s true’.
+		         Escapes are used also for some non-printing characters: for example, \n is line break. 
 		    string methods: similar to a function but use dot notation. 
 		     		   .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
 		      		   .upper(): takes a string and returns a new string with all uppercase letters of old string.
-		      		    in:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
-		      		    comparision: All the uppercase letters < all the lowercase letters.
+		      		    str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
 		      		    .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
 		      		    .is_lower(): Return true if all cased characters in the string are lowercase.
 	     list[]: can contain a mix of value types. [,,,]
 	     tuple(): like lists but immutable (can not be changed once created).
 	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
-		           np.array([,,,]), np.zeros(size), np.ones(size)*number, no.linspace(start,end,size)
+		           np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
 	     Warning： For list, list[]+list[] is just the concatenation of two lists.
 		       For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
 		       For ndarray, the operation is done for each element in an array or paries of elements at equal positionn in two arrays.
@@ -171,6 +174,7 @@ Code Defensively – assert # make sure input data is not empty
 		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
+		      		# Slice indices can go past the start/end of the sequence without raising an error.
 		    string[:m] # the slice starts at the beginning of the string.
 		    string[n:] # the slice goes to the end of the string
 		    string[:] # returns the whole string
@@ -178,7 +182,10 @@ Code Defensively – assert # make sure input data is not empty
 		    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
-		      
+	    Sequence comparisons: based on character encoding. 
+		    Character encoding: Every character has an integer number, unicode define numbers for >120000 characters.
+		    Functions ord and chr map between the character and integer representation: ord(’A’)==65, chr(65)=='A'.
+		    All the uppercase letters < all the lowercase letters.
 		      
 5. Control Flow:
 	      conditional statements (branching): 
@@ -188,7 +195,7 @@ Code Defensively – assert # make sure input data is not empty
 		      		   # If there is no indent, the else matchs with the closest if above.
 		      	      Avoid nested conditonals to make code easier to be understood.
 	      loop statement (iteration):
-		              for i in range(integer number): # executes a suite once for every element of a sequence, works on any iterable types.
+		              for i in range(integer number): executes a suite once for every element of a sequence, works on any iterable types.
 							      # The for loop is simpler to use, but only allows you to look at one element at a time.
                               while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
 		    				# If the condition is initially False, the loop executes zero times.
@@ -238,7 +245,7 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
 
 
 11. NumPy: import numpy as np 
-          Array: fast math operations on arrays/matrices
+          Array: fast math operations on arrays/matrices, NumPy arrays is element-wise.
                 a.To create an array: np,array([,,,]), np.arange(integer_number), np.linspace(start value, end value, numbers), np.zeros(integer number), np.ones(integer number).
    		b.Multidimensional array: For example x=np.zeros((2,4)) # get 2X4 array of zeros.
                                        x[0,:] # get the first row of x
