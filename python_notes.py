@@ -97,7 +97,8 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	d. function calls
  	   Python built-in functions: 
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
-		      		    sum() only works on sequences that contain only numbers.
+		      		    sum() and abs() only works on sequences that contain only numbers.
+		      		    range(n) returns an iterable value whose elements are the integers 0, 1, etc, up to n-1.
 	   All most all math functions take and return values of type float.
 	   print function convert all arguments to type str before printing.
    	   In python 3, print (sth)
@@ -105,14 +106,14 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	   def function_name(parameters):  # define function
 	       """ string """ # function docstring, the first statement inside a function (module, class) definition.
 		              # State the purpose and limitations of the function, parameters and return value.
-		      	      # use help(functionname) to see this string, use for description and assumptions.
+		      	      # use help(functionname) to see t>=valuehis string, use for description and assumptions.
                some local variables or operation # at least one statement
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
 	       # Without return, the output in None, the expression return print(...) will always return None as well because
 	       # print is a function. It has the side effect of printing the arguments to the console, but it returns None. 
-
+>=value
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
            The name of the argument has nothing to do with the name of the parameter. 
@@ -126,9 +127,12 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 
 
 2. Container types: 
-		 tuple(), commonly used in functions.
-	         list[], use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
-                 set([]), no repeated elements.
+		 tuple(): commonly used in functions.
+	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
+		     list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
+		                         [ element_expression for variable_name in iterable_expression ]
+		      			 For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
+                 set([]): no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}			
 
 If you set list1=list2, they are the same objects.
@@ -140,9 +144,6 @@ with open("filename.txt") as file:
 data = file.read()
 
 Code Defensively – assert # make sure input data is not empty
-
-List comprehension can minimize the loop, for example: a = range(1,50+1) 
-                                                       b = [x for x in a if x % 2 == 0] # even numbers only
 
 4. Sequence: contains zero or more values. Each value has an index: sequence[index].
 	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
