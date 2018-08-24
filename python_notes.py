@@ -93,6 +93,9 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	   Set undecided or no value: None
 	  
 	d. function calls
+ 	   Python built-in functions: 
+		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
+		      		    sum() only works on sequences that contain only numbers.
 	   All most all math functions take and return values of type float.
 	   print function convert all arguments to type str before printing.
    	   In python 3, print (sth)
@@ -173,12 +176,16 @@ List comprehension can minimize the loop, for example: a = range(1,50+1)
 		      		   # If there is no indent, the else matchs with the closest if above.
 		      	      Avoid nested conditonals to make code easier to be understood.
 	      loop statement (iteration):
-		              for i in range(integer number): #iterates through the elements of a collection 
+		              for i in range(integer number): # executes a suite once for every element of a sequence, works on any iterable types.
+							      # The for loop is simpler to use, but only allows you to look at one element at a time.
                               while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
 		    				# If the condition is initially False, the loop executes zero times.
 						# If no variable involved in the condition is changed or updated can 
 		                                # make the condition false during execution, the loop will continue forever.
 		      				# It is frequently used when the repetition times are unknown.
+		      				# The while loop must initialise and update an index variable, and specify the loop condition correctly
+		      				# but allows greater flexibility; for example, you can skip elements in the sequence
+		      				# (increment the index by more than one) or look at elements in more than one position in each iteration.
 	                      break # break out of the loop
                               continue # continue from the beginning of loop
 			      pass # null operation, act as a placeholder
