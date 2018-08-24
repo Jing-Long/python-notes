@@ -31,6 +31,8 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
 		    inf is not a pre-defined variable but it can be got by float('inf'). 
 		    float('inf') / 10 == inf, float('inf') // 10 == nan.
+		    For exact decimal representation, use the decimal module.
+		    For exact arithmetic, use the fractions module.
 	   bool     truth values: False True. Do not use +, -, *, etc, on them.
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
@@ -95,7 +97,7 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	   Set undecided or no value: None
 	  
 	d. function calls
- 	   Python built-in functions: 
+ 	   Python built-in functions: https://docs.python.org/3/library/stdtypes.html#string-methods
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
 		      		    sum() and abs() only works on sequences that contain only numbers.
 		      		    range(n) returns an iterable value whose elements are the integers 0, 1, etc, up to n-1.
@@ -106,14 +108,13 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 	   def function_name(parameters):  # define function
 	       """ string """ # function docstring, the first statement inside a function (module, class) definition.
 		              # State the purpose and limitations of the function, parameters and return value.
-		      	      # use help(functionname) to see t>=valuehis string, use for description and assumptions.
+		      	      # use help(functionname) to see this string, use for description and assumptions.
                some local variables or operation # at least one statement
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
 	       # Without return, the output in None, the expression return print(...) will always return None as well because
 	       # print is a function. It has the side effect of printing the arguments to the console, but it returns None. 
->=value
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
            The name of the argument has nothing to do with the name of the parameter. 
@@ -145,10 +146,17 @@ data = file.read()
 
 Code Defensively – assert # make sure input data is not empty
 
-4. Sequence: contains zero or more values. Each value has an index: sequence[index].
+4. Sequence: contains zero or more values. Each value has an integer index: sequence[index].
 	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
 	     len(sequence) # returns the sequence length
 	     string: contain only text, immutable. # string[len(string)-1] or string[-1] gives the last character
+		    string methods: similar to a function but use dot notation. 
+		     		   .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
+		      		   .upper(): takes a string and returns a new string with all uppercase letters of old string.
+		      		    in:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
+		      		    comparision: All the uppercase letters < all the lowercase letters.
+		      		    .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
+		      		    .is_lower(): Return true if all cased characters in the string are lowercase.
 	     list[]: can contain a mix of value types. [,,,]
 	     tuple(): like lists but immutable (can not be changed once created).
 	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
@@ -160,12 +168,13 @@ Code Defensively – assert # make sure input data is not empty
 	     traversal: for letter in string:
 		            print (letter)
 	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
-		    string[n:m] # returns the part of the string from the “n-eth” character to the “m-eth” character,
+		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
 		    string[:m] # the slice starts at the beginning of the string.
 		    string[n:] # the slice goes to the end of the string
 		    string[:] # returns the whole string
+		    string[::-1] generates a reversed string.
 		    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
