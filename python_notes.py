@@ -21,6 +21,21 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
+	
+Number in base b: - The position of the least significant digit is 0 (b**0 = 1 for any base b).
+		  - Each digit is one of 0, . . . , b − 1.
+		  - nnnn_b means a number in base b.
+		  - Not every fraction has a finite decimal expansion in a given base and digital computers work with 
+		     numbers of fixed width, so representation of fractions have finite precision (float numbers).
+		  - A floating point number x in base b: x = + or - m* b**e (sign: + or -; significand m; exponent e).
+		  - Floating point number systems: (base, precision of significand, lower limit, upper limit of the exponent).
+		     IEEE double-precision system: (2, 52, -1023, 1024). 
+		     In this system, the smallest number > 0 is 2e−1023 ≈ 10e−308, the smallest number > 1 is 1+2e−52≈1+2·10e−16.
+		  - The numbers that can be represented (exactly) in a floating point number system are not evenly
+		     distributed on the real line. 
+		  - Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
+,
+		     
 
 1. Expressions:
 	a. constants
