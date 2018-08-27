@@ -114,6 +114,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	d. function calls
  	   Python built-in functions: https://docs.python.org/3/library/stdtypes.html#string-methods
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
+		      		    sorted() returns a list.
 		      		    sum() and abs() only works on sequences that contain only numbers.
 		      		    range(n) returns an iterable value whose elements are the integers 0, 1, etc, up to n-1.
 	   All most all math functions take and return values of type float.
@@ -165,7 +166,7 @@ Code Defensively – assert # make sure input data is not empty
 	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
 	     len(sequence) # returns the sequence length
 	     string: contain only text-a sequence of characters, immutable. # string[len(string)-1] or string[-1] gives the last character
-		     write as 'string', "string", '''string'''.
+		     write as 'string', "string", '''string'''(The triple quote has the special ability that it can stretch over several lines).
 		      1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
 		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): ’it\’s true’.
 		         Escapes are used also for some non-printing characters: for example, \n is line break. 
@@ -186,7 +187,7 @@ Code Defensively – assert # make sure input data is not empty
 	     traversal: for letter in string:
 		            print (letter)
 	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
-		      The type of slice is still the type of original type of sequence, even only has one element.
+		      The type of slice is still the type of original type of sequence, even only has one element. Slicing a list returns a list.
 		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list then type(x[i:i+1]) == list
 		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
