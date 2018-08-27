@@ -186,6 +186,8 @@ Code Defensively – assert # make sure input data is not empty
 	     traversal: for letter in string:
 		            print (letter)
 	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
+		      The type of slice is still the type of original type of sequence, even only has one element.
+		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list then type(x[i:i+1]) == list
 		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
@@ -194,6 +196,8 @@ Code Defensively – assert # make sure input data is not empty
 		    string[n:] # the slice goes to the end of the string
 		    string[:] # returns the whole string
 		    string[::-1] generates a reversed string.
+		    s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 but does not include len(s).
+		    s[0:len(s):-1]==s[-1:(len(s)+1):-1]==''.  
 		    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
