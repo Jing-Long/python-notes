@@ -34,7 +34,6 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 		  - The numbers that can be represented (exactly) in a floating point number system are not evenly
 		     distributed on the real line. 
 		  - Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
-,
 		     
 
 1. Expressions:
@@ -170,12 +169,15 @@ Code Defensively – assert # make sure input data is not empty
 		      1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
 		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): ’it\’s true’.
 		         Escapes are used also for some non-printing characters: for example, \n is line break. 
-		    string methods: similar to a function but use dot notation. 
+		    string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
+		      		   .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
+		      		   .title() Return a copy of the string with its first character and first character after ' ' capitalized and the rest lowercased.
 		     		   .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
 		      		   .upper(): takes a string and returns a new string with all uppercase letters of old string.
+		      		   .split('delimiter') Return a list of the words in the string, they are separated by delimiter.
 		      		    str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
-		      		    .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
-		      		    .is_lower(): Return true if all cased characters in the string are lowercase.
+		      		   .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
+		      		   .is_lower(): Return true if all cased characters in the string are lowercase.
 	     list[]: can contain a mix of value types. [,,,]
 	     tuple(): like lists but immutable (can not be changed once created).
 	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
@@ -196,9 +198,12 @@ Code Defensively – assert # make sure input data is not empty
 		    string[:m] # the slice starts at the beginning of the string.
 		    string[n:] # the slice goes to the end of the string
 		    string[:] # returns the whole string
+		    Python interprets anegative step number as stepping backward.
 		    string[::-1] generates a reversed string.
+		    string[::-2] # backwards, every other letter
 		    s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 but does not include len(s).
 		    s[0:len(s):-1]==s[-1:(len(s)+1):-1]==''.  
+		    s[len(s):0:-1] # backwards but do not inculde s[0]
 		    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
