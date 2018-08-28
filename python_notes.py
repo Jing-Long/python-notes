@@ -18,7 +18,7 @@ Single and double quotes are the same in python, double quotes are useful when t
 Straight quotes ' ' " " are legal in python
 Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
-
+Runtime errors: NameError, TypeError, AttributeError, KeyError, Indexerror, etc.
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
 	
@@ -191,6 +191,11 @@ Code Defensively – assert # make sure input data is not empty
 	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
 		      The type of slice is still the type of original type of sequence, even only has one element. Slicing a list returns a list.
 		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list then type(x[i:i+1]) == list
+		    seq[ start : end : stepsize ]
+		       if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element at right index,
+		                           if start is at the right of end, returns empty string ''.
+		       if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including the element at left index,
+		     			   if end is at the left of the start, returns empty string ''.
 		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
