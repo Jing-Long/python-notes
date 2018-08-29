@@ -18,7 +18,7 @@ Single and double quotes are the same in python, double quotes are useful when t
 Straight quotes ' ' " " are legal in python
 Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
-Runtime errors: NameError, TypeError, AttributeError, KeyError, Indexerror, etc.
+Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,etc.
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
 	
