@@ -195,7 +195,7 @@ Code Defensively – assert # make sure input data is not empty
 		       if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element at right index,
 		                           if start is at the right of end, returns empty string ''.
 		       if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including the element at left index,
-		     			   if end is at the left of the start, returns empty string ''.
+		     			   if end is at the right of the start, returns empty string ''.
 		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
 		                # including the first (n-th) but excluding the last (m-th).
 		      		# If n>=m. returns empty string: ''.
@@ -208,7 +208,8 @@ Code Defensively – assert # make sure input data is not empty
 		    string[::-2] # backwards, every other letter
 		    s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 but does not include len(s).
 		    s[0:len(s):-1]==s[-1:(len(s)+1):-1]==''.  
-		    s[len(s):0:-1] # backwards but do not inculde s[0]
+		    s[len(s):0:-1] # backwards but do not inculde s[0]==s[-len(s)]
+		    s[::-1]==s[to the end of string and include:from the left of the beginning of string but not include:backwards]
 		    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
