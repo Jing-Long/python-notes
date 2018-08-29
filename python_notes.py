@@ -22,6 +22,8 @@ Continuation: add a \ at the end makes the statement continue onto the next line
 Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,etc.
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
+Code Defensively – assert # make sure input data is not empty	
+
 	
 Number in base b: - The position of the least significant digit is 0 (b**0 = 1 for any base b).
 		  - Each digit is one of 0, . . . , b − 1.
@@ -52,7 +54,9 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	   NoneType None
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
 	   For decimal: 027.= 27.0 # this number is still with base of 10
-	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, so it is better to do this in the code: from future import division, then we can use division directly: 10/3=3.3333333333333335. In python 3, the type of 3/1 is float.  
+	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, 
+	                  so it is better to do this in the code: from future import division, 
+			  then we can use division directly: 10/3=3.3333333333333335.   
 	   In python 3.x, the result of division is always a float. type(4/2) is float.
 	   Floats can be written in scientific notation: 1e30 mean 1*10^{30}, but it is a float. 
 		 
@@ -103,7 +107,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
  	   comparison/relational operators: #lower precedence than arithmetic operators
 	   <, >, <=, >= # ordering
 	   == # equality, do not use this on floats
-           != # not equal to
+          != # not equal to
 	   can compare two values of the same type, return True or False (type bool). 
 		      
 	   logical (Boolean) operators: #lower precedence than comparison operators
@@ -117,19 +121,19 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 		      		    sorted() returns a list.
 		      		    sum() and abs() only works on sequences that contain only numbers.
 		      		    range(n) returns an iterable value whose elements are the integers 0, 1, etc, up to n-1.
-	   All most all math functions take and return values of type float.
+	   Almost all math functions take and return values of type float.
 	   print function convert all arguments to type str before printing.
-   	   In python 3, print (sth)
-	   In python 2, print sth
+   	         In python 3, print (sth)
+	         In python 2, print sth
 	   def function_name(parameters):  # define function
 	       """ string """ # function docstring, the first statement inside a function (module, class) definition.
 		              # State the purpose and limitations of the function, parameters and return value.
-		      	      # use help(functionname) to see this string, use for description and assumptions.
+		      	      # use help(function_name) to see this string, use for description and assumptions.
                some local variables or operation # at least one statement
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
-	       # Without return, the output in None, the expression return print(...) will always return None as well because
+	       # Without return, the output is None, the expression return print(...) will always return None as well because
 	       # print is a function. It has the side effect of printing the arguments to the console, but it returns None. 
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
@@ -140,78 +144,77 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	   Function names can be letters, numbers and underscore but the first character cannot me a number. 
            Function names cannot be the python's keywords. Avoid to define function and variable with the same name.
            Function names are case sensitive. 
-           * A good function (usually) does one thing and should be general. Functions promote abstraction, reduce code repetition.
+           A good function (usually) does one thing and should be general. Functions promote abstraction, reduce code repetition.
 
 
 2. Container types: 
 		 tuple(): commonly used in functions.
 	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
+		     If you set list1=list2, they are the same objects. If you set list1=list.copy(), then they are two objects.
 		     list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
-		                         [ element_expression for variable_name in iterable_expression ]
+		                         [ element_expression for variable_name in iterable_expression if condition ]
 		      			 For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
                  set([]): no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}			
 
-If you set list1=list2, they are the same objects.
-If you set list1=list.copy(), then they are two objects.
+
 
 3. Open files, write files.
 
 with open("filename.txt") as file:
 data = file.read()
 
-Code Defensively – assert # make sure input data is not empty
 
 4. Sequence: contains zero or more values. Each value has an integer index: sequence[index]. Iterable data type.
-	     [index]: Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
-	     len(sequence) # returns the sequence length
-	     string: contain only text-a sequence of characters, immutable. # string[len(string)-1] or string[-1] gives the last character
-		     write as 'string', "string", '''string'''(The triple quote has the special ability that it can stretch over several lines).
+         [index] # Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) to n-1 (last value).
+	 len(sequence) # returns the sequence length
+   a. string: contain only text--a sequence of characters, immutable. # string[len(string)-1] or string[-1] gives the last character.
+   	     write as 'string', "string", '''string'''(The triple quote has the special ability that it can stretch over several lines).
 		      1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
-		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): ’it\’s true’.
+		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): 'it\'s true'.
 		         Escapes are used also for some non-printing characters: for example, \n is line break. 
-		    string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
-		      		   .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
-		      		   .title() Return a copy of the string with its first character and first character after ' ' capitalized and the rest lowercased.
-		     		   .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
-		      		   .upper(): takes a string and returns a new string with all uppercase letters of old string.
-		      		   .split('delimiter') Return a list of the words in the string, they are separated by delimiter.
-		      		    str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
-		      		   .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
-		      		   .is_lower(): Return true if all cased characters in the string are lowercase.
-	     list[]: can contain a mix of value types. [,,,]
-	     tuple(): like lists but immutable (can not be changed once created).
-	     NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
-		           np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
-	     Warning： For list, list[]+list[] is just the concatenation of two lists.
-		       For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
-		       For ndarray, the operation is done for each element in an array or paries of elements at equal positionn in two arrays.
-		       For example, array([1,2])+np.array([3,4])==array([4, 6]), np.array([1,2])*2==array([2, 4]), np.array([1,2])+2==array([3, 4]).
-	     traversal: for letter in string:
-		            print (letter)
-	     slicing: access a subsequence by indexing a range of positions: sequence[start:end]
-		      The type of slice is still the type of original type of sequence, even only has one element. Slicing a list returns a list.
-		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list then type(x[i:i+1]) == list
-		    seq[ start : end : stepsize ]
-		       if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element at right index,
-		                           if start is at the right of end, returns empty string ''.
-		       if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including the element at left index,
-		     			   if end is at the right of the start, returns empty string ''.
-		    string[n:m:p] # returns the part of the string from the “n-eth” character to the “m-eth” character in step of p,
-		                # including the first (n-th) but excluding the last (m-th).
-		      		# If n>=m. returns empty string: ''.
-		      		# Slice indices can go past the start/end of the sequence without raising an error.
-		    string[:m] # the slice starts at the beginning of the string.
-		    string[n:] # the slice goes to the end of the string
-		    string[:] # returns the whole string
-		    Python interprets anegative step number as stepping backward.
-		    string[::-1] generates a reversed string.
-		    string[::-2] # backwards, every other letter
-		    s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 but does not include len(s).
-		    s[0:len(s):-1]==s[-1:(len(s)+1):-1]==''.  
-		    s[len(s):0:-1] # backwards but do not inculde s[0]==s[-len(s)]
-		    s[::-1]==s[to the end of string and include:from the left of the beginning of string but not include:backwards]
-		    Unique to NumPy arrays: 
+      string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
+        .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
+        .title() Return a copy of the string with its first character and first character after ' ' capitalized and the rest lowercased.
+        .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
+        .upper(): takes a string and returns a new string with all uppercase letters of old string.
+        .split('delimiter') Return a list of the words in the string, they are separated by delimiter.
+         str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
+        .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
+        .is_lower(): Return true if all cased characters in the string are lowercase.
+   b. list[]: can contain a mix of value types. [,,,]
+   c. tuple(): like lists but immutable (can not be changed once created).
+   d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
+		    np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
+	     
+   Warning：For list, list[]+list[] is just the concatenation of two lists.
+	    For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
+            For ndarray, the operation is done for each element in an array or paries of elements at equal positionn in two arrays.
+	    For example, array([1,2])+np.array([3,4])==array([4, 6]), np.array([1,2])*2==array([2, 4]), np.array([1,2])+2==array([3,4]).
+   traversal: for letter in string:
+		  print (letter)
+   slicing: access a subsequence by indexing a range of positions: sequence[start:end]
+            The type of slice is still the type of original type of sequence, even only has one element. Slicing a list returns a list.
+		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list then type(x[i:i+1]) == list.
+	    seq[ start : end : stepsize ]
+	       if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element at right index,
+		                   if start is at the right of end, returns empty string ''.
+	       if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including the element at left 
+		                   index, if end is at the right of the start, returns empty string ''.
+	       string[n:m:p] # returns the part of the string from the “n-th” character (including the n-th) 
+		             # to the “m-th” character (excluding the m-th) in step of p if p>0.
+		      	     # Slice indices can go past the start/end of the sequence without raising an error.
+	       string[:m] # the slice starts at the beginning of the string.
+	       string[n:] # the slice goes to the end of the string
+	       string[:] # returns the whole string
+	    Python interprets anegative step number as stepping backward.
+       	       string[::-1] generates a reversed string.
+	       string[::-2] # backwards, every other letter
+	       s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 but does not include len(s).
+	       s[0:len(s):-1]==s[-1:(len(s)+1):-1]==''.  
+	       s[len(s):0:-1] # backwards but do not inculde s[0]==s[-len(s)]
+	       s[::-1]==s[to the end of string and include:from the left of the beginning of string but not include:backwards]
+	    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
 	    Sequence comparisons: based on character encoding. 
@@ -220,33 +223,33 @@ Code Defensively – assert # make sure input data is not empty
 		    All the uppercase letters < all the lowercase letters.
 		      
 5. Control Flow:
-	      conditional statements (branching): 
-		      	      if
-		      	      elif # abbreviation of “else if”
-		              else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
-		      		   # If there is no indent, the else matchs with the closest if above.
-		      	      Avoid nested conditonals to make code easier to be understood.
-	      loop statement (iteration):
-		              for i in range(integer number): executes a suite once for every element of a sequence, works on any iterable types.
-							      # The for loop is simpler to use, but only allows you to look at one element at a time.
-                              while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
-		    				# If the condition is initially False, the loop executes zero times.
-						# If no variable involved in the condition is changed or updated can 
-		                                # make the condition false during execution, the loop will continue forever.
-		      				# It is frequently used when the repetition times are unknown.
-		      				# The while loop must initialise and update an index variable, and specify the loop condition correctly
-		      				# but allows greater flexibility; for example, you can skip elements in the sequence
-		      				# (increment the index by more than one) or look at elements in more than one position in each iteration.
-	                      break # break out of the loop
-                              continue # continue from the beginning of loop
-			      pass # null operation, act as a placeholder
+   a. conditional statements (branching): 
+	 if
+	 elif # abbreviation of “else if”
+	 else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
+	      # If there is no indent, the else matchs with the closest if above.
+	 Avoid nested conditonals to make code easier to be understood.
+   b. loop statement (iteration):
+      for i in range(integer number): executes a suite once for every element of a sequence, works on any iterable types.
+				    # The for loop is simpler to use, but only allows you to look at one element at a time.
+      while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
+		    	- If the condition is initially False, the loop executes zero times.
+			- If no variable involved in the condition is changed or updated can make the condition false during execution,
+		          the loop will continue forever.
+		      	- It is frequently used when the repetition times are unknown.
+		      	- The while loop must initialise and update an index variable, and specify the loop condition correctly
+		      	  but allows greater flexibility; for example, you can skip elements in the sequence
+		      	  (increment the index by more than one) or look at elements in more than one position in each iteration.
+      break # break out of the loop
+      continue # continue from the beginning of loop
+      pass # null operation, act as a placeholder
 
-Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [0.0, 0.2, 0.4, 0.6000000000000001, 0.8]
+      Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [0.0, 0.2, 0.4, 0.6000000000000001, 0.8]
 		 
 6. Code testing and debugging: 
-		edge cases: - Integers: 0, 1, -1, 2, ...
+		edge cases:- Integers: 0, 1, -1, 2, ...
 			   - float: very small (1e-308) or big (1e308)
-			   - Sequences: empty (’’, []), length one.
+			   - Sequences: empty ('', []), length one.
 			   - Any value that requires special treatment in the code.
 		Assertion: assert test expression, "error message" # check the whether the variable is valid before run the code
 		           # The assert statement causes a runtime error if test expression evaluates to False.
@@ -258,7 +261,7 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
   how to use: import modules/package # or 
               from modules/package import variables, functions, classes
   Import them and then help(modules/package name) or dir(modules/package name) 
-  to get further information about included variables, functions, classes and usage.
+         to get further information about included variables, functions, classes and usage.
   Just use help() then find the required module, 
   type quit then Enter to leave the help system and return to the python shell.
 
@@ -278,13 +281,14 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
 
 11. NumPy: import numpy as np 
           Array: fast math operations on arrays/matrices, NumPy arrays is element-wise.
-                a.To create an array: np,array([,,,]), np.arange(integer_number), np.linspace(start value, end value, numbers), np.zeros(integer number), np.ones(integer number).
+                a.To create an array: np.array([,,,]), np.arange(integer_number), np.linspace(start value, end value, numbers), 
+		                      np.zeros(integer number), np.ones(integer number).
    		b.Multidimensional array: For example x=np.zeros((2,4)) # get 2X4 array of zeros.
                                        x[0,:] # get the first row of x
                                        x[:,0] # get the first column of x
    		c.Random array: np.random.random(loc=, scale=, size=integer_number) # uniform between 0 and 1
                 	        np.random.normal(size=integer_number) # standard nornal distributed
-		 		np.random.randint(low=, high=, size= ) # rando, integers
+		 		np.random.randint(low=, high=, size= ) # random integers
    		d. .dtype # check the data type
 	  	e. plotting: matplotlib
 	  Read data: y=np.loadtxt('x.txt')
@@ -322,9 +326,12 @@ Generate non-integer steps in range: [x * 0.1 for x in range(0,10,2)] #output: [
 
 14. Efficient coding: Python loops are slow, and NumPy array tricks can be used to sidestep this problem.
    Guideline 1: store data in NumPy arrays, not Python lists unless building the dynamical array using np.append().
-   Guideline 2: avoid large loops (using for or while) in favor of vectorized operations. When apply the same operation to a sequence of many items, vectorized methods within NumPy will likely be a better choice.
+   Guideline 2: avoid large loops (using for or while) in favor of vectorized operations. When apply the same operation to a sequence
+		of many items, vectorized methods within NumPy will likely be a better choice.
    Guideline 3: use array slicing, masks, fancy indexing, and broadcasting to eliminate loops.
-		Masks: can be combined using the bitwise operators & for AND, | for OR, ~ for NOT, and ^ for XOR. For example, x [ ( x < 0 . 1 ) | ( x > 0 . 5 ) ] = 9 9 9 will result in every item in the array x which is less than 0.1 or greater than 0.5 being replaced by 999. 
+		Masks: can be combined using the bitwise operators & for AND, | for OR, ~ for NOT, and ^ for XOR. 
+		       For example, x [ ( x < 0 . 1 ) | ( x > 0 . 5 ) ] = 9 9 9 will result in every item in the array x which is less 
+		      		    than 0.1 or greater than 0.5 being replaced by 999. 
 
 15. Scikit:
 	   Scikitimage: a more beefed-up image module than scipy.ndimage(imaging processing toolkit) 
