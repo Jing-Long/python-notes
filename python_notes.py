@@ -2,6 +2,7 @@
 
 In terminal: python --version # to check the python version most people still use 2.6/2.7
 
+Python visualized steps: http://pythontutor.com/visualize.html#mode=edit
 0. The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 
 Make a file executable: chmod +x filename.py
