@@ -79,7 +79,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 				
 	c. Operators: 
 	   log is ln
-           log10 is lg      
+          log10 is lg      
 	   numeric operators:
 	   ** # exponentiation has higher precedence than multiplication
            // # truncating/integer/floor division. For example, 5//2=2. -10/3=-3.33333 takes the floor of -3.33333 is -4.
