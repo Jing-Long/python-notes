@@ -3,7 +3,8 @@
 In terminal: python --version # to check the python version most people still use 2.6/2.7
 
 Python visualized steps: http://pythontutor.com/visualize.html#mode=edit
-0. The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
+0. Syntax:
+The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 
 Make a file executable: chmod +x filename.py
 	
@@ -19,7 +20,8 @@ Single and double quotes are the same in python, double quotes are useful when t
 Straight quotes ' ' " " are legal in python
 Curly quotes  ‘ ’ “ ” are not. 
 Continuation: add a \ at the end makes the statement continue onto the next line
-Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,etc.
+hash sign (#): marks the beginning of a comment; it continues to end-of-line.
+Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,IndentationError,etc.
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
 Code Defensively – assert # make sure input data is not empty	
@@ -57,7 +59,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, 
 	                  so it is better to do this in the code: from future import division, 
 			  then we can use division directly: 10/3=3.3333333333333335.   
-	   In python 3.x, the result of division is always a float. type(4/2) is float.
+	   In python 3.x, the result of division is always a float. type(4/2)==float, type(4//2)==int
 	   Floats can be written in scientific notation: 1e30 mean 1*10^{30}, but it is a float. 
 		 
  	   Type conversion: 
@@ -69,6 +71,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 		float('3.14')   3.14 Conversion from str to number only works if the string contains only a numberic literal
 		str(32)         '32'  
 		str('32')       '32'
+		      
 	b. variables:
 		      Variable name cannot begin with a number but begin with a letter or underscore.
 		      Variable name cannot use Python's keywords: 
@@ -79,8 +82,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 		      Naming conventions: i, j, k are often used for loop indices.
 		      			  n, m, k are often used for counts.
 		      			  x, y and z are often used for coordinates.
-		      			
-				
+		      				
 	c. Operators: 
 	   log is ln
           log10 is lg      
