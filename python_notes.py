@@ -2,7 +2,8 @@
 
 In terminal: python --version # to check the python version most people still use 2.6/2.7
 
-Python visualized steps: http://pythontutor.com/visualize.html#mode=edit
+Python visualized steps: http://pythontutor.com/visualize.html#mode=edit		
+	
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 
@@ -120,7 +121,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	d. function calls
  	   Python built-in functions: https://docs.python.org/3/library/stdtypes.html#string-methods
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
-		      		    sorted() returns a list.
+		      		    sorted(seq,key=fun) returns a increasing list, value x are sorted by fun(x). 
 		      		    sum() and abs() only works on sequences that contain only numbers.
 		      		    range(n) returns an iterable value whose elements are the integers 0, 1, etc, up to n-1.
 	   Almost all math functions take and return values of type float.
@@ -161,10 +162,19 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 
 
 
-3. Open files, write files.
-
-with open("filename.txt") as file:
-data = file.read()
+3. Open files, read data, write files:
+    python data[i][j]:    i=j=0 1 2 3 4 =j 
+		  	  i = 1
+		      	  i = 2
+		      	  i = 3
+		          i = 4
+		      	      
+    a. with open("filename.txt") as file:
+            data = file.read()
+    b. import csv
+       with open('filename.csv") as file:
+	    reader=csv.reader(file)
+ 	    data=[row for row in reader]
 
 
 4. Sequence: contains zero or more values. Each value has an integer index: sequence[index]. Iterable data type.
@@ -187,6 +197,8 @@ data = file.read()
    b. list[]: can contain a mix of value types. [,,,]
    c. tuple(): like lists but immutable (can not be changed once created).
    d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
+		    len(array) is the size of first dimension. array.shape is a sequence of the size in each dimension.
+		    array[i,j]==array[i][j], array[i,:]==array[i] is row i, array[:,j] is column j.
 		    np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
 	     
    Warning：For list, list[]+list[] is just the concatenation of two lists.
@@ -218,7 +230,10 @@ data = file.read()
 	       s[::-1]==s[to the end of string and include:from the left of the beginning of string but not include:backwards]
 	    Unique to NumPy arrays: 
 		      - Indexing with an array of integers selects elements from the positions in the index array.
+		        If I is an array of integers, A[I] returns an array with the elemnts of A at indices I (does not preserve shape).
 		     *- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
+	                If L is an array of bool of the same size as A, A[L] returns an array with the elemnts of A where L is True
+		        (does not preserve shape).
 	    Sequence comparisons: based on character encoding. 
 		    Character encoding: Every character has an integer number, unicode define numbers for >120000 characters.
 		    Functions ord and chr map between the character and integer representation: ord(’A’)==65, chr(65)=='A'.
@@ -273,7 +288,9 @@ data = file.read()
 
 9. Ipython : object_name? or object_name??# get help about this object
  	  
-10. Matplotlib: create scatter plots (plt.scatter),
+10. Matplotlib:plot median lines on the plot: plot.plot([median(x),median(x)],[min(y),max(y)],linestyle='solid', color='red')
+		      			      plot.plot([min(x),max(x)],[median(y),median(y)],linestyle='solid', color='blue')
+	       create scatter plots (plt.scatter),
  	       display images (plt.imshow),
 	       display contour plots (plt.contour and plt.contourf),
                create hexagonal tessellations (plt.hexbin),
@@ -338,6 +355,10 @@ data = file.read()
 15. Scikit:
 	   Scikitimage: a more beefed-up image module than scipy.ndimage(imaging processing toolkit) 
 	   Scikit-learn: a machine learning package
+		 
+16. Pandas: Library for (tabular) data analysis.
+	    - Special types for 1-d (Series) and 2-d (DataFrame) data.
+	    - General indexing, selection, alignment, grouping, aggregation.
   
 
 
