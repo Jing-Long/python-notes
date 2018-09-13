@@ -1,17 +1,15 @@
 <USEFUL PYTHON NOTES>
 
 In terminal: python --version # to check the python version most people still use 2.6/2.7
+	     Make a file executable: chmod +x filename.py
 
 Python visualized steps: http://pythontutor.com/visualize.html#mode=edit		
 	
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
-
-Make a file executable: chmod +x filename.py
 	
-get the current work directory: 
-import os 
-os.getcwd( )
+get the current work directory: import os 
+				os.getcwd( )
 
 whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
             At other times, whitespace is ignored.
