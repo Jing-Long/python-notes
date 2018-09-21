@@ -366,7 +366,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 	   Scikit-learn: a machine learning package
 		 
 16. Pandas: Library for (tabular) data analysis.
-	    - Special types for 1-d (Series) and 2-d (DataFrame) data.
+	    - Special types for 1-d (pandas.Series) and 2-d (pandas.DataFrame) data.
 	    - General indexing, selection, alignment, grouping, aggregation.
   
 
