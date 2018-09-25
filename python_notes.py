@@ -129,17 +129,24 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 	   print function convert all arguments to type str before printing.
    	         In python 3, print (sth)
 	         In python 2, print sth
+ 	   Recursive function: a function that calls itself. It must have a branching statement can stop the loop.
 	   def function_name(parameters):  # define function
 	       """ string """ # function docstring, the first statement inside a function (module, class) definition.
 		              # State the purpose and limitations of the function, parameters and return value.
 		      	      # use help(function_name) to see this string, use for description and assumptions.
                some local variables or operation # at least one statement
+	       When a non-local variable is evaluated, its value is taken from the (enclosing) global namespace.
+	       When a local variable (maybe defined after evaluation) is evaluated, only the local namespace is checked.
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
 	       # Without return, the output is None, the expression return print(...) will always return None as well because
 	       # print is a function. It has the side effect of printing the arguments to the console, but it returns None. 
 	   When call the function: function_name(arguments) # arguments can be expressions and functions
+		                   The local namespace disappars when the function call ends.
+	   When a function is called, its parameters are assigned references to the argument values. 
+	   # So if an argument value refers to a mutable object, modifications to this object made in the function are 
+	   # visible outsidethe function’s scope.
     	   If there is no return, the function call returns None, but it is not shown in interactive mode.
            The name of the argument has nothing to do with the name of the parameter. 
            The number of parameters and arguments should match.
@@ -148,7 +155,11 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 	   Function names can be letters, numbers and underscore but the first character cannot me a number. 
            Function names cannot be the python's keywords. Avoid to define function and variable with the same name.
            Function names are case sensitive. 
-           A good function (usually) does one thing and should be general. Functions promote abstraction, reduce code repetition.
+           A good function (usually) does one thing and should be general. 
+		                     promotes abstraction, reduces code repetition.
+		      		     access only local variables within.
+		      		     Don’t modify mutable argument values, unless intend to do so.
+	   
 
 
 2. Container types: 
@@ -202,7 +213,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
         .title() Return a copy of the string with its first character and first character after ' ' capitalized and the rest lowercased.
         .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
         .upper(): takes a string and returns a new string with all uppercase letters of old string.
-        .split('delimiter') Return a list of the words in the string, they are separated by delimiter.
+        .split('delimiter') Return a list of the words  an argument value refers to a mutable objectin the string, they are separated by delimiter.
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
         .is_lower(): Return true if all cased characters in the string are lowercase.
@@ -306,7 +317,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
   Just use help() then find the required module, 
   type quit then Enter to leave the help system and return to the python shell.
 
-
+ an argument value refers to a mutable object
 8. Objects in Python: attributes, methods, properties. For example, .real, .imag, .conjugate(), .append(), .sort().
    User-defined objects: class.
 
