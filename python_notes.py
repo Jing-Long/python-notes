@@ -38,11 +38,14 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 		  - The numbers that can be represented (exactly) in a floating point number system are not evenly
 		     distributed on the real line. 
 		  - Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
-		     
+	
+Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged.
+Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
+	mutable types: ndarray, list, set, dictionary, user-defined class
 
 1. Expressions:
 	a. constants
-	   type     value
+	   type     value (every value is an object, every object has a unique identifier (its location in memory): id())
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number (have limited range and precision, == can fail even for 0.1+0.2==0.3) 
@@ -151,7 +154,7 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
 2. Container types: 
 		 tuple(): commonly used in functions.
 	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
-		     If you set list1=list2, they are the same objects. If you set list1=list.copy(), then they are two objects.
+		     
 		     list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
 		                         [ element_expression for variable_name in iterable_expression if condition ]
 		      			 For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
@@ -203,7 +206,19 @@ Number in base b: - The position of the least significant digit is 0 (b**0 = 1 f
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
         .is_lower(): Return true if all cased characters in the string are lowercase.
-   b. list[]: can contain a mix of value types. [,,,]
+   b. list[]: can contain a mix of value types. [,,,] 
+	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
+	     Indexing a list returns an element, but slicing a list returns a list.
+	     For example, A = [ [1, 2, 3], [4, 5, 6]]. 
+	                  A[0]==[1,2,3] so A[0][1]==2.
+	                  A[0:1]==[[1,2,3]] but A[0:1][1] gives IndexError: list index out of range, because len(A[0:1])==1.
+	     List methods: .append(element), .insert(index,element), .pop(index), .extend(an iterable), .sort(), .reverse().
+	     A list contains references to its elements. If set b=a or b=a[:], when changing the reference, the printout result
+		 of a and b can be different, but intrinsically they are pointing to the same objects unless reassignment.
+	       If you set list2=list1, they are the same objects. If you set list2=list1.copy(), then they are two objects.
+	       Slicing a list creates a new list(list2=list1[:]), but containing references to the same objects (“shallow copy”).
+	     List points to its assignment even after the operation: 
+		 for example, a=[[]]*3, then a==[[],[],[]], but a[0].append(1)==[[1], [1], [1]] because a points to [].
    c. tuple(): like lists but immutable (can not be changed once created).
    d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
 		    len(array) is the size of first dimension. array.shape is a sequence of the size in each dimension.
