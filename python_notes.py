@@ -209,6 +209,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		      2. Quoting characters of the same kind can be used inside a string if escaped by backslash (\): 'it\'s true'.
 		         Escapes are used also for some non-printing characters: for example, \n is line break. 
       string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
+		      returns a  new string and leave the original alone.
         .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
         .title() Return a copy of the string with its first character and first character after ' ' capitalized and the rest lowercased.
         .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
