@@ -137,7 +137,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 	   or, and, not are used to combine Boolean values: True, False. Any nonzero number is interpreted as True as well.
 		     
 	   Set undecided or no value: None
-	  
+	   is operator tests whether two references are to the same object; that is, x is y is True if and only if id( x ) == id( y ).
 	d. function calls
  	   Python built-in functions: https://docs.python.org/3/library/stdtypes.html#string-methods
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
