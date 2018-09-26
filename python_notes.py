@@ -214,20 +214,29 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
         .find('substring or character', start index, stop index): word.find('a') returns the index of first 'a' in word.
         .upper(): takes a string and returns a new string with all uppercase letters of old string.
         .split('delimiter') Return a list of the words  an argument value refers to a mutable objectin the string, they are separated by delimiter.
+ 	 delimiter.join(list of strings): The inverse of split. It takes a list of strings and concatenates the elements.
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
         .is_lower(): Return true if all cased characters in the string are lowercase.
    b. list[]: can contain a mix of value types. [,,,] 
+	     Since lists are mutable, it is often useful to make a copy before performing operations that modify lists.
 	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
 	     Indexing a list returns an element, but slicing a list returns a list.
 	     For example, A = [ [1, 2, 3], [4, 5, 6]]. 
 	                  A[0]==[1,2,3] so A[0][1]==2.
 	                  A[0:1]==[[1,2,3]] but A[0:1][1] gives IndexError: list index out of range, because len(A[0:1])==1.
-	     List methods: .append(element), .insert(index,element), .pop(index), .extend(an iterable), .sort(), .reverse().
-	     A list contains references to its elements. If set b=a or b=a[:], when changing the reference, the printout result
-		 of a and b can be different, but intrinsically they are pointing to the same objects unless reassignment.
-	       If you set list2=list1, they are the same objects. If you set list2=list1.copy(), then they are two objects.
-	       Slicing a list creates a new list(list2=list1[:]), but containing references to the same objects (“shallow copy”).
+	     List methods: .append(element), .insert(index,element), .pop(index), .extend(elements), .sort(), .reverse(), remove().
+		           Most list methods are void; they modify the list and return None, so don't write alist=alist.method().
+	     A list contains references to its elements. 
+		 Two lists can be equivalent, which means elements are the same, but they can be not identical when they 
+		     they are not the same object.
+		 Aliasing: An object with more than one reference has more than one name, so we say that the object is aliased.
+		 If the aliased object is mutable, changes made with one alias affect the other. In general, it is safer to avoid
+		 	aliasing when working with mutable objects.
+		 If set b=a or b=a[:], when changing the reference, the printout result of a and b can be different,
+		 but intrinsically they are pointing to the same objects unless reassignment.
+	         If you set list2=list1, they are the same objects. If you set list2=list1.copy(), then they are two objects.
+	         Slicing a list creates a new list(list2=list1[:]), but containing references to the same objects (“shallow copy”).
 	     List points to its assignment even after the operation: 
 		 for example, a=[[]]*3, then a==[[],[],[]], but a[0].append(1)==[[1], [1], [1]] because a points to [].
    c. tuple(): like lists but immutable (can not be changed once created).
