@@ -28,8 +28,8 @@ Path:
 	  '..' means the directory above. File and directory names are not case sensitive.
 	  For example, C:\\Users\\u5869920\\test.py  ..\\lab1\\exercise1.py
 
-whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement
-	    or indentation. At other times, whitespace is ignored.
+whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
+	    At other times, whitespace is ignored.
             
 Indent can be a tab or any spaces>=1, but the convention is 4 spaces.
 Single and double quotes are the same in python, use double quotes when there is an apostrophe in string. 
@@ -52,12 +52,11 @@ Number in base b:
 	- A floating point number x in base b: x = + or - m* b**e (sign: + or -; significand m; exponent e).
 	- Floating point number systems:  
 	  (base, precision of significand, lower limit, upper limit of the exponent).
-	  IEEE double-precision system: (2, 52, -1023, 1024). In this system, 
-	the smallest number > 0 is 2e−1023 ≈ 10e−308, the smallest number > 1 is 1+2e−52≈1+2·10e−16.
-		  - The numbers that can be represented (exactly) in a floating point number system are not evenly
-		     distributed on the real line. 
-		  - Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative 
-	error is ≤ 1/2 b^{-p}.
+	  IEEE double-precision system: (2, 52, -1023, 1024). In this system, the smallest number > 0 is 2e−1023 ≈ 10e−308,
+	                                the smallest number > 1 is 1+2e−52≈1+2·10e−16.
+	- The numbers that can be represented (exactly) in a floating point number system are not evenly
+	      distributed on the real line. 
+	- Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
 	
 Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged.
 Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
@@ -120,7 +119,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		     number axis  -5 -4 -3 -2 -1  0  1  2  3  4  5  
 		     python %3     1  2  0  1  2  0  1  2  0  1  2 # it is more convenient in python for array, like [-1]
 	      Usage: can extract the right-most digit or digits from a number. 
-		     For example, x % 10 yields the right-most digit of x (in base 10) and x % 100 yields the last two digits.
+		For example, x % 10 yields the right-most digit of x (in base 10) and x % 100 yields the last two digits.
 	   -  cannot work on string
 	   /  cannot work on string
 	   +  plus, can also work as string concatenation, which means join the strings end-to-end. only + same types
@@ -185,10 +184,9 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 2. Container types: 
 		 tuple(): commonly used in functions.
 	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
-		     
-		     list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
-		                         [ element_expression for variable_name in iterable_expression if condition ]
-		      			 For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
+		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
+		                     [ element_expression for variable_name in iterable_expression if condition ]
+		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
                  set([]): no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}			
 
@@ -206,9 +204,8 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
                 print(..., file=file_obj) prints to the specified file instead of the terminal.
                 Check whether the file exists before writing to avoid erasing or overwriting:
 		      os.path.exists(file_path) returns True or False.
-    The file object keeps track of where in the file to read (or write) next. The next read operation
-	(or iteration) starts from the current position. So if you call write again, it adds the new 
-	data to the end of the file.
+    The file object keeps track of where in the file to read (or write) next. The next read operation (or iteration)
+        starts from the current position. So if you call write again, it adds the new data to the end of the file.
     python data[i][j]:    i=j=0 1 2 3 4 =j 
 		  	  i = 1
 		      	  i = 2
@@ -231,24 +228,23 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		create a list of the indicies of rows in table that have a non-empty value in column 3:
 						 [ i for i in range(len(table)) if table[i][3] != '' ].
 		convert data type, for example:[ [ row[0], row[1], float(row[2]), int(row[3]) ] for row in table ],
-		       but try to convert and empty string into a number (int or float) will cause a runtime error. 
-		       One way to solve this is to filter out rows with empty entries first and then convert those that remain.
-		       Or use a self-defined function: [ my_fun(row[3]) for row in table ].
+		     but try to convert and empty string into a number (int or float) will cause a runtime error. 
+		     One way to solve this is to filter out rows with empty entries first and then convert those that remain.
+		     Or use a self-defined function: [ my_fun(row[3]) for row in table ].
 
 4. Sequence: contains zero or more values. Each value has an integer index: sequence[index]. Iterable data type.
          [index] # Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) 
 		 to n-1 (last value).
 	 len(sequence) # returns the sequence length
-   a. string: contain only text--a sequence of characters, immutable. # string[len(string)-1] or string[-1] 
-		 gives the last character.
-   	     write as 'string', "string", '''string'''(The triple quote has the special ability that it can 
-						       stretch over several lines).
-		      1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
-		      2. Quoting characters of the same kind can be used inside a string if escaped by 
-		 backslash (\): 'it\'s true'.
-		         Escapes are used also for some non-printing characters: for example, \n is line break. 
-      string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
-		      returns a  new string and leave the original alone.
+   a. string: contain only text--a sequence of characters, immutable. write as 'string', "string", '''string'''
+	      (The triple quote has the special ability that it can stretch over several lines).
+	      # string[len(string)-1] or string[-1] gives the last character.
+		1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
+		2. Quoting characters of the same kind can be used inside a string if escaped by 
+		backslash (\): 'it\'s true'.
+		Escapes are used also for some non-printing characters: for example, \n is line break. 
+   string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
+		   returns a  new string and leave the original alone.
         .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
         .title() Return a copy of the string with its first character and first character after ' ' capitalized 
 		 and the rest lowercased.
@@ -258,52 +254,48 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		 they are separated by delimiter.
  	 delimiter.join(list of strings): The inverse of split. It takes a list of strings and concatenates the elements.
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as
-		 a substring in the second.
+		        a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
         .is_lower(): Return true if all cased characters in the string are lowercase.
    b. list[]: can contain a mix of value types. [,,,] 
 	     Since lists are mutable, it is often useful to make a copy before performing operations that modify lists.
 	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
-	     Indexing a list returns an element, but slicing a list returns a list.
+	Indexing a list returns an element, but slicing a list returns a list.
 	     For example, A = [ [1, 2, 3], [4, 5, 6]]. 
 	                  A[0]==[1,2,3] so A[0][1]==2.
 	                  A[0:1]==[[1,2,3]] but A[0:1][1] gives IndexError: list index out of range, 
 		 because len(A[0:1])==1.
-	     List methods: 
+	List methods: 
 	     .append(element), .insert(index,element), .pop(index), .extend(elements), .sort(), .reverse(), remove().
 		           Most list methods are void; they modify the list and return None,
 		 so don't write alist=alist.method().
-	     A list contains references to its elements. 
+	A list contains references to its elements. 
 		 Two lists can be equivalent, which means elements are the same, 
 		 but they can be not identical when they 
 		     they are not the same object.
-		 Aliasing: An object with more than one reference has more than one name, so we say that 
-		 the object is aliased.
-		 If the aliased object is mutable, changes made with one alias affect the other. In general, 
-		 it is safer to avoid
-		 	aliasing when working with mutable objects.
+	Aliasing: An object with more than one reference has more than one name, so we say that the object is aliased.
+		 If the aliased object is mutable, changes made with one alias affect the other.  
+		 In general, it is safer to avoid aliasing when working with mutable objects.
 		 If set b=a or b=a[:], when changing the reference, the printout result of a and b can be different,
-		 but intrinsically they are pointing to the same objects unless reassignment.
-	         If you set list2=list1, they are the same objects. If you set list2=list1.copy(),
-		 then they are two objects.
+		    but intrinsically they are pointing to the same objects unless reassignment.
+	         If you set list2=list1, they are the same objects.If you set list2=list1.copy(),then they are two objects.
 	         Slicing a list creates a new list(list2=list1[:]), but containing references to 
-		 the same objects (“shallow copy”).
-	     List points to its assignment even after the operation: 
+		    the same objects (“shallow copy”).
+	 List points to its assignment even after the operation: 
 		 for example, a=[[]]*3, then a==[[],[],[]], but a[0].append(1)==[[1], [1], [1]] 
 		 because a points to [].
    c. tuple(): like lists but immutable (can not be changed once created).
    d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
-		    len(array) is the size of first dimension. array.shape is a sequence of the size
-		 in each dimension.
+		    len(array) is the size of first dimension. array.shape is a sequence of the size in each dimension.
 		    array[i,j]==array[i][j], array[i,:]==array[i] is row i, array[:,j] is column j.
 		    np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
 	     
    Warning：For list, list[]+list[] is just the concatenation of two lists.
 	    For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
             For ndarray, the operation is done for each element in an array or paries of elements 
-		 at equal positionn in two arrays.
+		at equal positionn in two arrays.
 	    For example, array([1,2])+np.array([3,4])==array([4, 6]), np.array([1,2])*2==array([2, 4]), 
-		 np.array([1,2])+2==array([3,4]).
+		np.array([1,2])+2==array([3,4]).
    traversal: for letter in string:
 		  print (letter)
    slicing: access a subsequence by indexing a range of positions: sequence[start:end]
@@ -311,13 +303,11 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		 Slicing a list returns a list.
 		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list
 		 then type(x[i:i+1]) == list.
-	    seq[ start : end : stepsize ]
-	       if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the 
-		 element at right index,
-		                   if start is at the right of end, returns empty string ''.
-	       if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including 
-		 the element at left 
-		                   index, if end is at the right of the start, returns empty string ''.
+      seq[ start : end : stepsize ]
+	  if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element
+	     at right index, if start is at the right of end, returns empty string ''.
+	  if stepsize is < 0, take every stepsize:th element, start from right, down to, but not including the element 
+	     at left index, if end is at the right of the start, returns empty string ''.
 	       string[n:m:p] # returns the part of the string from the “n-th” character (including the n-th) 
 		             # to the “m-th” character (excluding the m-th) in step of p if p>0.
 		      	     # Slice indices can go past the start/end of the sequence without raising an error.
@@ -333,21 +323,17 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 	       s[len(s):0:-1] # backwards but do not inculde s[0]==s[-len(s)]
 	       s[::-1]==s[to the end of string and include:from the left of the beginning of string 
 			  but not include:backwards]
-	    Unique to NumPy arrays: 
-		      - Indexing with an array of integers selects elements from the positions in the index array.
-		        If I is an array of integers, A[I] returns an array with the elemnts of A at indices I 
-		 (does not preserve shape).
-		     *- Indexing with an array of Booleans selects elements from the positions where the 
-		 index array contains True.
-	                If L is an array of bool of the same size as A, A[L] returns an array with the elemnts 
-		 of A where L is True
-		        (does not preserve shape).
-	    Sequence comparisons: based on character encoding. 
-		    Character encoding: Every character has an integer number, unicode define numbers 
-		 for >120000 characters.
-		    Functions ord and chr map between the character and integer representation:
-		 ord(’A’)==65, chr(65)=='A'.
-		    All the uppercase letters < all the lowercase letters.
+   Unique to NumPy arrays: 
+	 - Indexing with an array of integers selects elements from the positions in the index array.
+	   If I is an array of integers, A[I] returns an array with the elemnts of A at indices I (does not preserve shape).
+	*- Indexing with an array of Booleans selects elements from the positions where the index array contains True.
+	   If L is an array of bool of the same size as A, A[L] returns an array with the elemnts of A where L is True
+	      (does not preserve shape).
+		 
+Sequence comparisons: based on character encoding. 
+		 Character encoding: Every character has an integer number, unicode define numbers for >120000 characters.
+		 Functions ord and chr map between the character and integer representation: ord(’A’)==65, chr(65)=='A'.
+		 All the uppercase letters < all the lowercase letters.
 		      
 5. Control Flow:
    a. conditional statements (branching): 
@@ -361,16 +347,13 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		 executes a suite once for every element of a sequence, works on any iterable types.
 			# The for loop is simpler to use, but only allows you to look at one element at a time.
       while i < number: # Repeats a suite of statements as long as a condition is true, write condition explicitly.
-		    	- If the condition is initially False, the loop executes zero times.
-			- If no variable involved in the condition is changed or updated can make the condition 
-		 false during execution,
-		          the loop will continue forever.
-		      	- It is frequently used when the repetition times are unknown.
-		      	- The while loop must initialise and update an index variable, and specify the loop 
-		 condition correctly
-		      	  but allows greater flexibility; for example, you can skip elements in the sequence
-		      	  (increment the index by more than one) or look at elements in more than one position 
-		 in each iteration.
+		- If the condition is initially False, the loop executes zero times.
+		- If no variable involved in the condition is changed or updated can make the condition false
+		  during execution, the loop will continue forever.
+		- It is frequently used when the repetition times are unknown.
+		- The while loop must initialise and update an index variable, and specify the loop condition correctly
+		  but allows greater flexibility; for example, you can skip elements in the sequence
+		  (increment the index by more than one) or look at elements in more than one position in each iteration.
       break # break out of the loop
       continue # continue from the beginning of loop
       pass # null operation, act as a placeholder
