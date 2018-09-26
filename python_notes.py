@@ -10,6 +10,13 @@ The head of the file: #!/usr/bin/python # this line tells OS which package to us
 	
 get the current work directory: import os 
 				os.getcwd( )
+Path: Linux and macOS: An absolute path starts with a '/', the separator is '/', '..' means the directory above.
+		       Single directory tree. File and directory names are case sensitive.
+		       For example, /students/u5869920/test.py
+      Windows: One directory tree for each drive (A to Z). Absolute path starts with drive letter and ':', like C:.
+	       The separator is '\', but must write '\\' in python because '\' has its meaning in python.
+	       '..' means the directory above. File and directory names are not case sensitive.
+	       For example, C:\\Users\\u5869920\\test.py  ..\\lab1\\exercise1.py
 
 whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
             At other times, whitespace is ignored.
@@ -174,13 +181,22 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 
 
 
-3. Open files, read data, write files:
+3. Open files, read data, write files: 
+    Open("file_path", "access_mode") access mode: r(ead), w(rite), a(ppend), b(inary).
+    Read file: file_obj.read(size of characters), file_obj.readline(), file_obj.readlines().
+    Close the file when done (always!): file_object.close().
+    Write file: file_obj.write(string) writes the string to the file.
+                print(..., file=file_obj) prints to the specified file instead of the terminal.
+                Check whether the file exists before writing to avoid erasing or overwriting:
+		      os.path.exists(file_path) returns True or False.
+    The file object keeps track of where in the file to read (or write) next.
+    The next read operation (or iteration) starts from the current position.
     python data[i][j]:    i=j=0 1 2 3 4 =j 
 		  	  i = 1
 		      	  i = 2
 		      	  i = 3
 		          i = 4
-		      	      
+    	      	      
     a. with open("filename.txt") as file:
             data = file.read()
     b. import csv
