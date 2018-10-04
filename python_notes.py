@@ -212,7 +212,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		      	  i = 3
 		          i = 4
     	      	      
-    a. with open("filename.txt") as file:
+    a. with open("filename.txt") as file: # with statement will automatically close the file.
             data = file.read()
     b. import csv
        with open('filename.csv") as file:
