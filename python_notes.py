@@ -189,12 +189,15 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
 		                     [ element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
-                 set([]): no repeated elements.
+                set([]): no repeated elements.
 	         dictionary{'dictionary key': dictionary value,'':}: dict is a mutable type but keys must be immutable.
-		     dict[key]=value to assign or update the key value.A key can be any type of constant value. 
+		     dict[key]=value to assign or update the key value. 
+		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs.
 		     Each key has exactly one value, the same value can correspond to different keys. 
-		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary 
-		      to check the existence of value.
+		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
+		      check the existence of value. A key can be any type of constant value. 
+		     A dictionary can contain a mix of key types. Stored values can be of any type. 
+		     Remove keys: del adict[key], adict.pop(key). adict.popitem() removes an arbitrary pair.
 
 
 
