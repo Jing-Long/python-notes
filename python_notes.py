@@ -190,7 +190,11 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		                     [ element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
                  set([]): no repeated elements.
-	         dictionary{'dictionary key': dictionary value,'':}			
+	         dictionary{'dictionary key': dictionary value,'':}: dict is a mutable type but keys must be immutable.
+		     dict[key]=value to assign or update the key value.A key can be any type of constant value. 
+		     Each key has exactly one value, the same value can correspond to different keys. 
+		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary 
+		      to check the existence of value.
 
 
 
@@ -242,7 +246,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 	      (The triple quote has the special ability that it can stretch over several lines).
 	      # string[len(string)-1] or string[-1] gives the last character.
 		1. Quoting characters other than those enclosing a string can be used inside it: "it’s true!".
-		2. Quoting characters of the same kind can be used inside a string if escaped by 
+		2. Quoting characters of the same kind can be used inside a string if escaped by                       
 		backslash (\): 'it\'s true'.
 		Escapes are used also for some non-printing characters: for example, \n is line break. 
    string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
@@ -383,7 +387,7 @@ Sequence comparisons: based on character encoding.
   Just use help() then find the required module, 
   type quit then Enter to leave the help system and return to the python shell.
 
- an argument value refers to a mutable object
+  an argument value refers to a mutable object
 8. Objects in Python: attributes, methods, properties. For example, .real, .imag, .conjugate(), .append(), .sort().
    User-defined objects: class.
 
