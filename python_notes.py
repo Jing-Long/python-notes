@@ -8,13 +8,15 @@ Python visualized steps: http://pythontutor.com/visualize.html#mode=edit
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 	
-get the current work directory: import os 
-				os.getcwd( )
-		 absolute path: os.path.abspath('filename')
+import os 
+get the current work directory:	os.getcwd( )
+get the absolute path: os.path.abspath('filename')
+change directory to another path: os.chdir('path')
 check whether a file or directory exists: os.path.exists('filename')
 check whether it is a directory: os.path.isdir('path/foldername or filename')
 check whether it is a file: os.path.isfile('path/foldername or filename')
-return a list of the files in the given directory: os.listdir(path)
+return a list of the files in the given directory: os.listdir(path). os.listdir('..') will return 
+           a list of the subdirectories and files in the parent of the current working directory.
 
 Path: 
     Linux and macOS: 
