@@ -158,6 +158,9 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
                some local variables or operation # at least one statement
 	       When a non-local variable is evaluated, its value is taken from the (enclosing) global namespace.
 	       When a local variable (maybe defined after evaluation) is evaluated, only the local namespace is checked.
+		      If a variable is assigned anywhere in the function(it doesn't matter if that assignment has been
+		      executed, or will be executed, or not), then that variable is considered to be "local", 
+		      and the python interpreter will only look for it in the local namespace of the function call.
 	       #all statements must be preceded by same space.
                return expression with parameters # parameters and variables that created in a function are local.
 	       # a function can contain multiple return statements (and also no return statement).
