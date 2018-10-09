@@ -192,9 +192,13 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
 		                     [ element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
-                set([]): no repeated elements, mutable.
+                set([]): set is a mutable type but elements within must be immutable.
+		         set is an unordered collection of (immutable) values without duplicates(no repeated elements).
+		         set operators: |union, &intersection, -difference, ^symmetric difference, elem in aset membership.
+		                         set operators return a new result set, and do not modify the operands.
+		         set methods: aset.issubset(bset) subset (A ⊆ B), aset.union(bset), aset.intersection(bset).
 	         dictionary{'dictionary key': dictionary value,'':}: dict is a mutable type but keys must be immutable.
-		     dict[key]=value to assign or update the key value. 
+		     Values stored in a dictionary can be mutable: dict[key]=value to assign or update the key value. 
 		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs.
 		     Each key has exactly one value, the same value can correspond to different keys. 
 		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
