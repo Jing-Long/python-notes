@@ -60,7 +60,7 @@ Number in base b:
 	      distributed on the real line. 
 	- Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
 	
-Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged.
+Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged: tuple.
 Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
 	mutable types: ndarray, list, set, dictionary, user-defined class
 
@@ -187,12 +187,12 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 
 
 2. Container types: 
-		 tuple(): commonly used in functions.
-	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)].
+		 tuple(): commonly used in functions, immutable.
+	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)], mutable.
 		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
 		                     [ element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
-                set([]): no repeated elements.
+                set([]): no repeated elements, mutable.
 	         dictionary{'dictionary key': dictionary value,'':}: dict is a mutable type but keys must be immutable.
 		     dict[key]=value to assign or update the key value. 
 		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs.
