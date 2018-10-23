@@ -7,7 +7,7 @@ Python visualized steps: http://pythontutor.com/visualize.html#mode=edit
 	
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
-	
+-1 can multiply string but get empty string, but -1 cannot multiply None.
 import os 
 get the current work directory:	os.getcwd( )
 get the absolute path: os.path.abspath('filename')
