@@ -135,6 +135,11 @@ hashable: Immutable types like integers, floats and strings are hashable; mutabl
 	   -=, /=, *=, **=, %=.
 		      
  	   comparison/relational operators: #lower precedence than arithmetic operators
+		                # work with tuples and other sequences; starts by comparing
+				# the first element from each sequence. If they are equal, 
+		                # it goes on to the next elements, and so on, until it finds
+		      		# elements that differ. Subsequent elements are not considered 
+		      		# (even if they are really big).
 	   <, >, <=, >= # ordering
 	   == # equality, do not use this on floats
           != # not equal to
@@ -196,7 +201,8 @@ hashable: Immutable types like integers, floats and strings are hashable; mutabl
 		 tuple(): commonly used in functions, immutable.
 	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)], mutable.
 		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
-		                     [ element_expression for variable_name in iterable_expression if condition ]
+		                     [ , where each
+tuple is a key-value pair.element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
                 set([]): set is a mutable type but elements within must be immutable.
 		         set is an unordered collection of (immutable) values without duplicates(no repeated elements).
@@ -206,8 +212,9 @@ hashable: Immutable types like integers, floats and strings are hashable; mutabl
 	         dictionary{'dictionary key': dictionary value,'':} or dict(): dict is a mutable type but keys must be immutable.
 		     Values stored in a dictionary can be mutable: dict[key]=value to assign or update the key value. 
 		      Dictionaries are mutable, so they can’t be used as keys, but they can be used as values.
-		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs.
-		     A key can be any type of constant value, even lists. Each key has exactly one value, the same value can correspond 
+		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and 
+		      key–value pairs as a sequence of tuples, where each tuple is a key-value pair..
+		     A key can be any type of constant value, even a tuple or a string. Each key has exactly one value, the same value can correspond 
 		      to different keys. A dictionary can contain a mix of key types. Stored values can be of any type.
 		     In general, the order of items in a dictionary is unpredictable. Can use sorted to sort keys.
 		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
@@ -284,7 +291,7 @@ hashable: Immutable types like integers, floats and strings are hashable; mutabl
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as
 		        a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
-        .is_lower(): Return true if all cased characters in the string are lowercase.
+        .is_lower(): Return true if all cased charaprint(index, element)cters in the string are lowercase.
    b. list[]: can contain a mix of value types. [,,,] 
 	     Since lists are mutable, it is often useful to make a copy before performing operations that modify lists.
 	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
@@ -312,7 +319,26 @@ hashable: Immutable types like integers, floats and strings are hashable; mutabl
 	 List points to its assignment even after the operation: 
 		 for example, a=[[]]*3, then a==[[],[],[]], but a[0].append(1)==[[1], [1], [1]] 
 		 because a points to [].
-   c. tuple(): like lists but immutable (can not be changed once created).
+   c. tuple(): a sequence of values. The values can be any type, and they are indexed by integers, 
+		like lists but immutable (can not be reassigned once created but can be replaced).
+		 t = ('a', 'b', 'c', 'd', 'e') then t = ('A',) + t[1:] gives t==('A', 'b', 'c', 'd', 'e').
+	       Syntactically, a tuple is a comma-separated list of values, but it is common to enclose tuples in parentheses.
+	       Create a tuple with a single element, have to include a final comma: t1='a', then type(t1)==tuple
+		 t2=('a') then type(t2)==str.
+	       If the argument of a tuple is a sequence (string, list or tuple), the result is a tuple with the elements of
+		the sequence: t = tuple('lupins') then t==('l', 'u', 'p', 'i', 'n', 's').
+	       Tuple assignment: to swap values of two variables: a,b=b,a.
+		 		 to split and assign: addr = 'monty@python.org' then uname, domain = addr.split('@') gives
+		 		  uname=='monty' and domain=='python.org'.
+	       Variable-length argument tuples: a parameter name that begins with *(gather/scatter), usually use *args.
+	       zip: a built-in function that takes two or more sequences and returns a list of tuples where each tuple
+		      contains one element from each sequence. For example, zip(seq_a,seq_b).
+		    If the sequences are not the same length, the result has the length of the shorter one. 
+		    Can’t use an index to select an element from a zip object, but can use for x,y in zip(t1,t2). 
+		    Enumerate: for index, element in enumerate('abc'): print(index, element).
+	       In a return statement, it is syntactically simpler to create a tuple than a list.
+	       If you are passing a sequence as an argument to a function, using tuples reduces the
+		    potential for unexpected behavior due to aliasing.
    d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
 		    len(array) is the size of first dimension. array.shape is a sequence of the size in each dimension.
 		    array[i,j]==array[i][j], array[i,:]==array[i] is row i, array[:,j] is column j.
