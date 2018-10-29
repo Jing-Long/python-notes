@@ -42,7 +42,11 @@ hash sign (#): marks the beginning of a comment; it continues to end-of-line.
 Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,etc.
 input()
 Exception handling: try, except, else, finally. # to catch the abnormal actions 
+raise an exception is the same as when Python raises one, but the raise statement can take a detailed error message
+	as an optional argument: raise Error('optional argument').
 Code Defensively – assert # make sure input data is not empty	
+Global variables: Variables in __main__ are sometimes called global because they can be accessed from any function.
+		  It is common to use global variables for flags (boolean variables that indicate whether a condition is true).
 
 	
 Number in base b: 
@@ -63,6 +67,7 @@ Number in base b:
 Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged: tuple.
 Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
 	mutable types: ndarray, list, set, dictionary, user-defined class
+hashable: Immutable types like integers, floats and strings are hashable; mutable types like lists and dictionaries are not.
 
 1. Expressions:
 	a. constants
@@ -157,6 +162,7 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		      	      # use help(function_name) to see this string, use for description and assumptions.
                some local variables or operation # at least one statement
 	       When a non-local variable is evaluated, its value is taken from the (enclosing) global namespace.
+		      Can use global variable_name to declare this is a global variable.
 	       When a local variable (maybe defined after evaluation) is evaluated, only the local namespace is checked.
 		      If a variable is assigned anywhere in the function(it doesn't matter if that assignment has been
 		      executed, or will be executed, or not), then that variable is considered to be "local", 
@@ -197,14 +203,20 @@ Mutable objects can change id. A mutable object can be modified yet it’s ident
 		         set operators: |union, &intersection, -difference, ^symmetric difference, elem in aset membership.
 		                         set operators return a new result set, and do not modify the operands.
 		         set methods: aset.issubset(bset) subset (A ⊆ B), aset.union(bset), aset.intersection(bset).
-	         dictionary{'dictionary key': dictionary value,'':}: dict is a mutable type but keys must be immutable.
+	         dictionary{'dictionary key': dictionary value,'':} or dict(): dict is a mutable type but keys must be immutable.
 		     Values stored in a dictionary can be mutable: dict[key]=value to assign or update the key value. 
+		      Dictionaries are mutable, so they can’t be used as keys, but they can be used as values.
 		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs.
-		     Each key has exactly one value, the same value can correspond to different keys. 
+		     A key can be any type of constant value, even lists. Each key has exactly one value, the same value can correspond 
+		      to different keys. A dictionary can contain a mix of key types. Stored values can be of any type.
+		     In general, the order of items in a dictionary is unpredictable. Can use sorted to sort keys.
 		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
-		      check the existence of value. A key can be any type of constant value. 
-		     A dictionary can contain a mix of key types. Stored values can be of any type. 
+		      check the existence of value. Can set values=dict.values, then use value in values to
+		      check the existence of value.
+		     len(dictionary) gives the number of key-value pairs.
 		     Remove keys: del adict[key], adict.pop(key). adict.popitem() removes an arbitrary pair.
+		     dict.get(key, default value): If the key appears in the dictionary, get returns the corresponding value;
+		      otherwise it returns the default value.
 
 
 
