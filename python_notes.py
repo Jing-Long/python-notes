@@ -302,8 +302,7 @@ tuple is a key-value pair.element_expression for variable_name in iterable_expre
 		 because len(A[0:1])==1.
 	List methods: 
 	     .append(element), .insert(index,element), .pop(index), .extend(elements), .sort(), .reverse(), remove().
-		           Most list methods are void; they modify the list and return None,
-		 so don't write alist=alist.method().
+	     Most list methods are void; they modify the list and return None, so don't write alist=alist.method().
 	A list contains references to its elements. 
 		 Two lists can be equivalent, which means elements are the same, 
 		 but they can be not identical when they 
