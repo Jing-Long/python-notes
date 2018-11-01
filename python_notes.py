@@ -68,7 +68,9 @@ Immutable objects never change id. Operations on immutable objects create new ob
 Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
 	mutable types: ndarray, list, set, dictionary, user-defined class
 hashable: Immutable types like integers, floats and strings are hashable; mutable types like lists and dictionaries are not.
-
+Abstract data types(ADT): the set of operations that can be done on values of the type.
+		Example: “sequence type” (length, index, slice)
+			 “iterable type” (for loop)
 1. Expressions:
 	a. constants
 	   type     value (every value is an object, every object has a unique identifier (its location in memory): id())
