@@ -1,10 +1,11 @@
 <USEFUL PYTHON NOTES>
 
-In terminal: python --version # to check the python version most people still use 2.6/2.7
-	     Make a file executable: chmod +x filename.py
+In terminal/shell/commandline: python --version # to check the python version most people still use 2.6/2.7
+	* Can pass arguments (strings) to the program:  python3 my prog.py arg1 "arg two"
+	 Make a file executable: chmod +x filename.py
 
 Python visualized steps: http://pythontutor.com/visualize.html#mode=edit		
-	
+Python has two basic modes: script(write in a file) and interactive(write in command line). 
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 -1 can multiply string but get empty string, but -1 cannot multiply None.
@@ -45,10 +46,7 @@ Exception handling: try, except, else, finally. # to catch the abnormal actions
 raise an exception is the same as when Python raises one, but the raise statement can take a detailed error message
 	as an optional argument: raise Error('optional argument').
 Code Defensively – assert # make sure input data is not empty	
-Global variables: Variables in __main__ are sometimes called global because they can be accessed from any function.
-		  It is common to use global variables for flags (boolean variables that indicate whether a condition is true).
 
-	
 Number in base b: 
 	- The position of the least significant digit is 0 (b**0 = 1 for any base b).
 	- Each digit is one of 0, . . . , b − 1.
@@ -427,7 +425,21 @@ Sequence comparisons: based on character encoding.
 		      
  
 
-7. Modules: a collection of functions and variables.
+7. Global variables: Variables in __main__ are sometimes called global because they can be accessed from any function.
+		  It is common to use global variables for flags (boolean variables that indicate whether a condition is true).
+  Modules: a collection of functions and variables (a sequence of statements). Every python file is a module.
+           * When the python shell runs in “script mode”, the file it’s executing becomes the “main module”.
+		- Its name becomes ’ main ’.
+		- Its namespace is the global namespace.
+	   * The first time a module is imported, that module is loaded (executed); it may later be re-loaded.
+	   * Every loaded module creates a separate (permanent) namespace and stores the module object(namespace)
+		 in the system dictionary of loaded modules and then associates modname with the module object
+		 in the current namespace.  
+	   * Note: the Spyder IDE reloads all user-defined modules on (first) import when running a file.
+	   * The global variable __name__ in every module namespace stores the module name.
+  	   * import sys sys.modules is a dictionary of all loaded modules.
+	   * dir(module) returns a list of names defined in module’s namespace
+	   * dir() lists the current (global) namespace.
   Package: a collection of modules.
   how to use: import modules/package # or 
               from modules/package import variables, functions, classes
