@@ -78,6 +78,7 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
 		    inf is not a pre-defined variable but it can be got by float('inf'). 
 		    float('inf') / 10 == inf, float('inf') // 10 == nan.
+		    * (Almost) never compare floats with ==.
 		    For exact decimal representation, use the decimal module.
 		    For exact arithmetic, use the fractions module.
 	   bool     truth values: False True. Do not use +, -, *, etc, on them.
