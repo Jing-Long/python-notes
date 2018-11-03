@@ -58,7 +58,7 @@ Errors: -Syntax errors # are shown in spyder before running the code
 	Runtime errors are preferrable to semantic errors, because it is immediately clear when and where they occur.
 	⇒ it is better to “fail fast” (raise an exception) than to return a non-sense result.
 	
-Raising Exception:-assert condition, "fail message" # Code Defensively
+Raising Exception:-assert condition, "fail message" # Code Defensively, check violated assumptions.
 		   If can’t compute a correct value, raise an exception!
 		    # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
 		    # with the (optional) message.
@@ -79,6 +79,23 @@ Exception handling:  catch the abnormal actions, but NEVER catch an exception un
 		    * If the named exception arises from executing suite immediately execute errorhandlingsuite,
 		      then continue as normal.
 		    * If any other error occurs, fail as normal.
+		     try:
+			 suite
+		     except ExceptionName:
+			 error-handling suite
+		     finally:
+			 clean-up suite
+		    * After suite finishes (whether it causes an exception or not), execute clean-up suite.
+		    * If an except clause is triggered, the error handler is executed before clean-up suite.
+		    * If the exception passes to the caller, clean-up suite is still executed before leaving the function.
+		    * finally is usually used to ensure file is closed even if an exception occurs:
+			def read file(fname):
+			    file = open(fname)
+			    try:
+				for line in file:
+				   # process line
+			    finally:
+				file.close() # close file
 
  	
 
