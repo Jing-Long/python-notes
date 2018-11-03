@@ -1,6 +1,6 @@
 <USEFUL PYTHON NOTES>
 
-In terminal/shell/commandline: python --version # to check the python version most people still use 2.6/2.7
+In terminal/shell/commandline: python --version # check the python version most people still use 2.6/2.7
 	* Can pass arguments (strings) to the program:  python3 my prog.py arg1 "arg two"
 	 Make a file executable: chmod +x filename.py
 
@@ -31,11 +31,12 @@ Path:
 	  '..' means the directory above. File and directory names are not case sensitive.
 	  For example, C:\\Users\\u5869920\\test.py  ..\\lab1\\exercise1.py
 
-whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
-	    At other times, whitespace is ignored.
+whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement
+	    or indentation. At other times, whitespace is ignored.
+	    
             
 Indent can be a tab or any spaces>=1, but the convention is 4 spaces.
-Single and double quotes are the same in python, use double quotes when there is an apostrophe in string. 
+Single and double quotes are the same in python,use double quotes when there is an apostrophe in string. 
 Straight quotes ' ' " " are legal in python. Curly quotes  ‘ ’ “ ” are not. 
 
 Continuation: add a \ at the end makes the statement continue onto the next line
@@ -44,41 +45,46 @@ hash sign (#): marks the beginning of a comment; it continues to end-of-line.
 input()
 	
 Errors: -Syntax errors # are shown in spyder before running the code
-	-Runtime errors # code is syntactically valid, but operation is impossible for python interpreter, so
-		       # they will cause an exception.
+	-Runtime errors # code is syntactically valid, but operation is impossible for python 
+		        # interpreter, so they will cause an exception.
 	*Exception names:-TypeError, ValueError (incorrect type or value for operation)
-			 -NameError, UnboundLocalError, AttributeError(variable or function name not defined)
+			 -NameError, UnboundLocalError, AttributeError
+			  (variable or function name not defined)
 			 -IndexError (invalid sequence index)
 			 -KeyError (key not in dictionary)
 			 -ZeroDivisionError,etc.
 			E.g. [] input can incur Index error
-	-Semantic/logic errors: code runs without error, but does the wrong thing, like returns the wrong answer.
-			       For example, filereadline() move the file position to the end.
-					    compare floating point numbers with ==, <, >.
-	Runtime errors are preferrable to semantic errors, because it is immediately clear when and where they occur.
+	-Semantic/logic errors: code runs without error, but does the wrong thing,
+				like returns the wrong answer. For example,
+			        filereadline() move the file position to the end.
+				compare floating point numbers with ==, <, >.
+	Runtime errors are preferrable to semantic errors, because it is immediately clear when and
+		where they occur.
 	⇒ it is better to “fail fast” (raise an exception) than to return a non-sense result.
 	
-Raising Exception:-assert condition, "fail message" # Code Defensively, check violated assumptions.
-		   If can’t compute a correct value, raise an exception! But don’t assert more than what is necessary.
-		   - For example, don’t restrict input types if the function works for any sequence type.
-		    # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
-		    # with the (optional) message.
-		    It is used to check programmers's assumptions: including correct use of functions,
-		    like make sure input data is not empty. Function’s docstring states assumptions;
-		    assertions can check them.
-		  -raise ExceptionName('optional argument') 
-		    # Raise the named exception. Exception arguments (required or optional) depend on exception type.
-	            # Raise an exception is the same as runtime erros that Python raise, but the raise statement can
-	            # take a detailed error message and typically used with programmer-defined exception types.
-Exception handling:  catch the abnormal actions, but NEVER catch an exception unless there is a sensible way to handle it.
+Raising Exception:
+  -assert condition, "fail message" # Code Defensively, check violated assumptions.
+   If can’t compute a correct value, raise an exception! But don’t assert more than what is necessary.
+  - For example, don’t restrict input types if the function works for any sequence type.
+    # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
+    # with the (optional) message.
+   It is used to check programmers's assumptions: including correct use of functions, like make sure
+   input data is not empty. Function’s docstring states assumptions; assertions can check them.
+  -raise ExceptionName('optional argument') 
+  # Raise the named exception. Exception arguments (required or optional) depend on exception type.
+  # Raise an exception is the same as runtime erros that Python raise, but the raise statement can
+  # take a detailed error message and typically used with programmer-defined exception types.
+	
+Exception handling: catch the abnormal actions, 
+			but NEVER catch an exception unless there is a sensible way to handle it.
 		     try:
 			 suite
 		     except ExceptionName:
 			 error-handling suite 
 		    * Execute suite.
 		    * If no exception arises, skip error-handling suite and continue as normal.
-		    * If the named exception arises from executing suite immediately execute errorhandlingsuite,
-		      then continue as normal.
+		    * If the named exception arises from executing suite immediately execute
+		      errorhandlingsuite, then continue as normal.
 		    * If any other error occurs, fail as normal.
 		     try:
 			 suite
@@ -86,10 +92,11 @@ Exception handling:  catch the abnormal actions, but NEVER catch an exception un
 			 error-handling suite
 		     finally:
 			 clean-up suite
-		    * After suite finishes (whether it causes an exception or not), execute clean-up suite.
-		    * If an except clause is triggered, the error handler is executed before clean-up suite.
-		    * If the exception passes to the caller, clean-up suite is still executed before leaving the function.
-		    * finally is usually used to ensure file is closed even if an exception occurs:
+	       * After suite finishes (whether it causes an exception or not), execute clean-up suite.
+	       * If an except clause is triggered, the error handler is executed before clean-up suite.
+               * If the exception passes to the caller, clean-up suite is still executed before leaving
+		 the function.
+	       * finally is usually used to ensure file is closed even if an exception occurs:
 			def read file(fname):
 			    file = open(fname)
 			    try:
@@ -104,28 +111,33 @@ Number in base b:
 	- The position of the least significant digit is 0 (b**0 = 1 for any base b).
 	- Each digit is one of 0, . . . , b − 1.
 	- nnnn_b means a number in base b.
-	- Not every fraction has a finite decimal expansion in a given base and digital computers work with 
-	  numbers of fixed width, so representation of fractions have finite precision (float numbers).
+	- Not every fraction has a finite decimal expansion in a given base and digital computers work 
+	  with numbers of fixed width, so representation of fractions have finite precision(float numbers).
 	- A floating point number x in base b: x = + or - m* b**e (sign: + or -; significand m; exponent e).
 	- Floating point number systems:  
 	  (base, precision of significand, lower limit, upper limit of the exponent).
-	  IEEE double-precision system: (2, 52, -1023, 1024). In this system, the smallest number > 0 is 2e−1023 ≈ 10e−308,
-	                                the smallest number > 1 is 1+2e−52≈1+2·10e−16.
+	  IEEE double-precision system: (2, 52, -1023, 1024).
+	  In this system, the smallest number > 0 is 2e−1023 ≈ 10e−308,
+	                  the smallest number > 1 is 1+2e−52≈1+2·10e−16.
 	- The numbers that can be represented (exactly) in a floating point number system are not evenly
 	      distributed on the real line. 
-	- Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e, the relative error is ≤ 1/2 b^{-p}.
+	- Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e,
+	                                    the relative error is ≤ 1/2 b^{-p}.
 	
-Immutable objects never change id. Operations on immutable objects create new objects, leaving the original unchanged: tuple.
+Immutable objects never change id. 
+	Operations on immutable objects create new objects, leaving the original unchanged: tuple.
 Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
 	mutable types: ndarray, list, set, dictionary, user-defined class
-hashable: Immutable types like integers, floats and strings are hashable; mutable types like lists and dictionaries are not.
+hashable: Immutable types like integers, floats and strings are hashable;
+	  mutable types like lists and dictionaries are not.
 Abstract data types(ADT): the set of operations that can be done on values of the type.
 		Example: “sequence type” (length, index, slice)
 			 “iterable type” (for loop)
 1. Expressions:
 	a. constants
-	   type     value (every value is an object, every object has a unique identifier (its location in memory): id())
-   	   int      integer (no inherent size limit but the computer may crash if the number is too big)
+	   type     value (every value is an object, every object has a unique identifier 
+		    (its location in memory): id())
+   	   int      integer (no inherent size limit but the computer may crash if number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
 	   float    floating-point number: (Almost) never compare floats with ==.
 		    - have limited range:  Min/max value: ±1.79*10^308
@@ -147,22 +159,24 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 		 
  	   Type conversion: 
 		 input        output
-		int ('32')      32  Conversion from str to number only works if the string contains only a numberic literal
+		int ('32')      32  Conversion from str to number only works if the string contains 
+				    only a numberic literal
 		int (32)        32
 		int (3.8)       3   int does not round off, it just chops off the fraction part
 		float(32）      32.0
-		float('3.14')   3.14 Conversion from str to number only works if the string contains only a numberic literal
+		float('3.14')   3.14 Conversion from str to number only works if the string contains
+		      		     only a numberic literal
 		str(32)         '32'  
 		str('32')       '32'
 		      
 	b. variables:
-		      Variable name cannot begin with a number but begin with a letter or underscore.
-		      Variable name cannot use Python's keywords: 
-				False class finally is return None continue for lambda try True def from nonlocal while
-				and del global not with as elif if or yield assert else import pass break except in raise
-		      Variable name is case sensitive.	
-		      A variable assignment is written as variable_name=expression # this is a statement
-		      Naming conventions: i, j, k are often used for loop indices.
+		Variable name cannot begin with a number but begin with a letter or underscore.
+		Variable name cannot use Python's keywords: False class finally is return None continue
+		      for lambda try True def from nonlocal while and del global not with as elif if or
+		      yield assert else import pass break except in raise
+		Variable name is case sensitive.	
+		A variable assignment is written as variable_name=expression # this is a statement
+		Naming conventions: i, j, k are often used for loop indices.
 		      			  n, m, k are often used for counts.
 		      			  x, y and z are often used for coordinates.
 		      				
@@ -171,20 +185,24 @@ Abstract data types(ADT): the set of operations that can be done on values of th
           log10 is lg      
 	   numeric operators:
 	   ** # exponentiation has higher precedence than multiplication
-           // # truncating/integer/floor division. For example, 5//2=2. -10/3=-3.33333 takes the floor of -3.33333 is -4.
+           // # truncating/integer/floor division.
 	      # divides two numbers and rounds down (toward negative infinity) to an integer.
+		For example, 5//2=2. -10/3=-3.33333 takes the floor of -3.33333 is -4.
            %  # modulus (remainder after division). For example, 5%2=1
 	      #10//3==3, 10%3==1; -10//3==-4, -10%3==2; 10//-3==-4, 10%-3==-2; -10//-3==3, -10%-3==-1
 	      Rule: For any two numbers a and b, if q = a // b and r = a % b, sign(a%b)==sign(b),
 		    then it should be true that (q * b) + r == a and that r is “between” 0 and b 
 		    (when b is positive, that means 0 <= r < b; if b is negative, it means b < r <= 0).
 		     number axis  -5 -4 -3 -2 -1  0  1  2  3  4  5  
-		     python %3     1  2  0  1  2  0  1  2  0  1  2 # it is more convenient in python for array, like [-1]
+		     python %3     1  2  0  1  2  0  1  2  0  1  2
+		                   # it is more convenient in python for array, like [-1]
 	      Usage: can extract the right-most digit or digits from a number. 
-		For example, x % 10 yields the right-most digit of x (in base 10) and x % 100 yields the last two digits.
+		For example, x % 10 yields the right-most digit of x (in base 10) and 
+		             x % 100 yields the last two digits.
 	   -  cannot work on string
 	   /  cannot work on string
-	   +  plus, can also work as string concatenation, which means join the strings end-to-end. only + same types
+	   +  plus, can also work as string concatenation, which means join the strings end-to-end.
+		    only + same types
 	   *  works in the form of 'string'*integer for repetition of string	      
 	   += # For example: x+=2 is equivalent to x=x+2
 	   -=, /=, *=, **=, %=.
@@ -201,10 +219,12 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 	   can compare two values of the same type, return True or False (type bool). 
 		      
 	   logical (Boolean) operators: #lower precedence than comparison operators
-	   or, and, not are used to combine Boolean values: True, False. Any nonzero number is interpreted as True as well.
+	   or, and, not are used to combine Boolean values: True, False. 
+		      Any nonzero number is interpreted as True as well.
 		     
 	   Set undecided or no value: None
-	   is operator tests whether two references are to the same object; that is, x is y is True if and only if id( x ) == id( y ).
+	   is operator tests whether two references are to the same object;
+		 that is, x is y is True if and only if id( x ) == id( y ).
 	d. function calls
  	   Python built-in functions: https://docs.python.org/3/library/stdtypes.html#string-methods
 		      		    min(), max() and sorted() work on any types of sequences but not work on mixed types.
@@ -256,8 +276,7 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 		 tuple(): commonly used in functions, immutable.
 	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)], mutable.
 		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
-		                     [ , where each
-tuple is a key-value pair.element_expression for variable_name in iterable_expression if condition ]
+		    [ , where each tuple is a key-value pair.element_expression for variable_name in iterable_expression if condition ]
 		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
                 set([]): set is a mutable type but elements within must be immutable.
 		         set is an unordered collection of (immutable) values without duplicates(no repeated elements).
@@ -269,7 +288,8 @@ tuple is a key-value pair.element_expression for variable_name in iterable_expre
 		      Dictionaries are mutable, so they can’t be used as keys, but they can be used as values.
 		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and 
 		      key–value pairs as a sequence of tuples, where each tuple is a key-value pair..
-		     A key can be any type of constant value, even a tuple or a string. Each key has exactly one value, the same value can correspond 
+		     A key can be any type of constant value, even a tuple or a string.
+		      Each key has exactly one value, the same value can correspond 
 		      to different keys. A dictionary can contain a mix of key types. Stored values can be of any type.
 		     In general, the order of items in a dictionary is unpredictable. Can use sorted to sort keys.
 		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
