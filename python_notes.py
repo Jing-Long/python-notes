@@ -303,7 +303,7 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 		Can set values=dict.values, then use value in values to check the existence of value.
 	methods:
 	   dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs
-	        as a sequence of tuples, where each tuple is a key-value pair..
+	        as a sequence of tuples, where each tuple is a key-value pair. Can write as key,value=item.
 	   The order of items in a dictionary is unpredictable. Can use sorted to sort keys.
 	   len(dictionary) gives the number of key-value pairs.
 	   Remove keys: del adict[key], adict.pop(key). adict.popitem() removes an arbitrary pair.
