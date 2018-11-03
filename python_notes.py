@@ -59,7 +59,8 @@ Errors: -Syntax errors # are shown in spyder before running the code
 	⇒ it is better to “fail fast” (raise an exception) than to return a non-sense result.
 	
 Raising Exception:-assert condition, "fail message" # Code Defensively, check violated assumptions.
-		   If can’t compute a correct value, raise an exception!
+		   If can’t compute a correct value, raise an exception! But don’t assert more than what is necessary.
+		   - For example, don’t restrict input types if the function works for any sequence type.
 		    # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
 		    # with the (optional) message.
 		    It is used to check programmers's assumptions: including correct use of functions,
