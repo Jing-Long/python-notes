@@ -273,32 +273,41 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 
 
 2. Container types: 
-		 tuple(): commonly used in functions, immutable.
-	         list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)], mutable.
-		 list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
-		    [ , where each tuple is a key-value pair.element_expression for variable_name in iterable_expression if condition ]
-		      		     For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
-                set([]): set is a mutable type but elements within must be immutable.
-		         set is an unordered collection of (immutable) values without duplicates(no repeated elements).
-		         set operators: |union, &intersection, -difference, ^symmetric difference, elem in aset membership.
-		                         set operators return a new result set, and do not modify the operands.
-		         set methods: aset.issubset(bset) subset (A ⊆ B), aset.union(bset), aset.intersection(bset).
-	         dictionary{'dictionary key': dictionary value,'':} or dict(): dict is a mutable type but keys must be immutable.
-		     Values stored in a dictionary can be mutable: dict[key]=value to assign or update the key value. 
-		      Dictionaries are mutable, so they can’t be used as keys, but they can be used as values.
-		     dict.keys(), dict.values(), and adict.items() return views of the keys, values and 
-		      key–value pairs as a sequence of tuples, where each tuple is a key-value pair..
-		     A key can be any type of constant value, even a tuple or a string.
-		      Each key has exactly one value, the same value can correspond 
-		      to different keys. A dictionary can contain a mix of key types. Stored values can be of any type.
-		     In general, the order of items in a dictionary is unpredictable. Can use sorted to sort keys.
-		     Can use key in dictionary to check the existence of key, but cannot use value in dictionary to
-		      check the existence of value. Can set values=dict.values, then use value in values to
-		      check the existence of value.
-		     len(dictionary) gives the number of key-value pairs.
-		     Remove keys: del adict[key], adict.pop(key). adict.popitem() removes an arbitrary pair.
-		     dict.get(key, default value): If the key appears in the dictionary, get returns the corresponding value;
-		      otherwise it returns the default value.
+   tuple(): commonly used in functions, immutable.
+		      
+   list[]: use slice to access sublists [start(default=0):stop(default=none):stride(default=1)], mutable.
+    list comprehension: a mechanism for writing compact expressions that create lists, can minimize the loop.
+ 			[element_expression for variable_name in iterable_expression if condition ]
+		      	For example, [x**2 for x in range(50) if x % 2 == 0] # list of even numbers' square.
+		      
+   set([]): set is a mutable type but elements within must be immutable.
+		Elements can be a mixture of different types. Lists cannot be elements of a set, but tuples can be.
+	    set is an unordered collection of (immutable) values without duplicates(no repeated elements).
+	    set is iterable, but it is not a sequence (so it is not indexable).
+	    set operators: len(), |union, &intersection, -difference, ^symmetric difference, element in aset.
+		           set operators return a new result set, and do not modify the operands.
+	    set methods: aset.issubset(bset) subset (A ⊆ B), aset.union(bset), aset.intersection(bset),
+		         aset.add(element), aset.remove(element).
+		      
+   dictionary{'dictionary key': dictionary value,'':} or dict(): mutable type, a collection but NOT a sequence.
+	dict[key]=value to assign or update the key value. 
+	key: -can be different types, must be immutable. 
+	     -A key can be a string, tuple or integer(immutable), but not dictionary(mutable). 
+	     -Each key has exactly one value.
+	     -Can use key in dictionary to check the existence of key. 
+	value: -can be any types, including mutable objects. 
+	       -Values can be of any type, even a dictionary (mutable).
+	       -The same value can be associated with several different keys.
+	       -Cannot use value in dictionary to check the existence of value. 
+		Can set values=dict.values, then use value in values to check the existence of value.
+	methods:
+	   dict.keys(), dict.values(), and adict.items() return views of the keys, values and key–value pairs
+	        as a sequence of tuples, where each tuple is a key-value pair..
+	   The order of items in a dictionary is unpredictable. Can use sorted to sort keys.
+	   len(dictionary) gives the number of key-value pairs.
+	   Remove keys: del adict[key], adict.pop(key). adict.popitem() removes an arbitrary pair.
+	   dict.get(key, default value): If the key appears in the dictionary, get returns the corresponding value;
+		      		         otherwise it returns the default value.
 
 
 
