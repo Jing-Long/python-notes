@@ -126,11 +126,12 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 	   type     value (every value is an object, every object has a unique identifier (its location in memory): id())
    	   int      integer (no inherent size limit but the computer may crash if the number is too big)
 	   str      string (enclosed in single or double quote marks, must match)
-	   float    floating-point number (have limited range and precision, == can fail even for 0.1+0.2==0.3) 
+	   float    floating-point number: (Almost) never compare floats with ==.
+		    - have limited range:  Min/max value: ±1.79*10^308
+		    - have limited precision: == can fail even for 0.1+0.2==0.3.
 	  	    special values: inf, nan (not a number, for example inf-inf is not defined).
 		    inf is not a pre-defined variable but it can be got by float('inf'). 
 		    float('inf') / 10 == inf, float('inf') // 10 == nan.
-		    * (Almost) never compare floats with ==.
 		    For exact decimal representation, use the decimal module.
 		    For exact arithmetic, use the fractions module.
 	   bool     truth values: False True. Do not use +, -, *, etc, on them.
