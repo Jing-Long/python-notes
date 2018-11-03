@@ -40,12 +40,47 @@ Straight quotes ' ' " " are legal in python. Curly quotes  ‘ ’ “ ” are n
 
 Continuation: add a \ at the end makes the statement continue onto the next line
 hash sign (#): marks the beginning of a comment; it continues to end-of-line.
-Runtime errors: NameError, TypeError, AttributeError, KeyError, IndexError, ZeroDivisionError,etc.
+
 input()
-Exception handling: try, except, else, finally. # to catch the abnormal actions 
-raise an exception is the same as when Python raises one, but the raise statement can take a detailed error message
-	as an optional argument: raise Error('optional argument').
-Code Defensively – assert # make sure input data is not empty	
+	
+Errors: -Syntax errors # are shown in spyder before running the code
+	-Runtime errors # code is syntactically valid, but operation is impossible for python interpreter, so
+		       # they will cause an exception.
+	*Exception names:-TypeError, ValueError (incorrect type or value for operation)
+			 -NameError, UnboundLocalError, AttributeError(variable or function name not defined)
+			 -IndexError (invalid sequence index)
+			 -KeyError (key not in dictionary)
+			 -ZeroDivisionError,etc.
+			E.g. [] input can incur Index error
+	-Semantic/logic errors: code runs without error, but does the wrong thing, like returns the wrong answer.
+			       For example, filereadline() move the file position to the end.
+					    compare floating point numbers with ==, <, >.
+	Runtime errors are preferrable to semantic errors, because it is immediately clear when and where they occur.
+	⇒ it is better to “fail fast” (raise an exception) than to return a non-sense result.
+	
+Raising Exception:-assert condition, "fail message" # Code Defensively
+		   If can’t compute a correct value, raise an exception!
+		    # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
+		    # with the (optional) message.
+		    It is used to check programmers's assumptions: including correct use of functions,
+		    like make sure input data is not empty. Function’s docstring states assumptions;
+		    assertions can check them.
+		  -raise ExceptionName('optional argument') 
+		    # Raise the named exception. Exception arguments (required or optional) depend on exception type.
+	            # Raise an exception is the same as runtime erros that Python raise, but the raise statement can
+	            # take a detailed error message and typically used with programmer-defined exception types.
+Exception handling:  catch the abnormal actions, but NEVER catch an exception unless there is a sensible way to handle it.
+		     try:
+			 suite
+		     except ExceptionName:
+			 error-handling suite 
+		    * Execute suite.
+		    * If no exception arises, skip error-handling suite and continue as normal.
+		    * If the named exception arises from executing suite immediately execute errorhandlingsuite,
+		      then continue as normal.
+		    * If any other error occurs, fail as normal.
+
+ 	
 
 Number in base b: 
 	- The position of the least significant digit is 0 (b**0 = 1 for any base b).
