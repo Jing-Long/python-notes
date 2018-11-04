@@ -127,7 +127,7 @@ Number in base b:
 object: every value computed by the interpreter is an object. An object in python has an id and some attributes, like type.
 	When we assign a value to variable, the variable name is associated with a reference to the object;
 	that is objects id. Several variables can refer to the same objects.
-id: identity, this is a number assigned by the python interpreter when an object is created. Can acess using id function.
+id: identity, this is a number assigned by the python interpreter when an object is created. Can access using id() function.
 	
 Immutable objects never change id. 
 	Operations on immutable objects create new objects, leaving the original unchanged: tuple.
@@ -138,6 +138,11 @@ hashable: Immutable types like integers, floats and strings are hashable;
 Abstract data types(ADT): the set of operations that can be done on values of the type.
 		Example: “sequence type” (length, index, slice)
 			 “iterable type” (for loop)
+local namespace: is the namespace that is created when a function is called, and stops existing when the function ends.
+		 use locals() to examine the contents of the current local namespace, return as a dictionary.
+global namespace: is created when the program (or the python interpreter) starts executing, and persists until it finishes.
+		 use globals() to examine the contents of the current global namespace, return as a dictionary.
+
 1. Expressions:
 	a. constants
 	   type     value (every value is an object, every object has a unique identifier 
