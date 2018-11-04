@@ -9,6 +9,10 @@ Python has two basic modes: script(write in a file) and interactive(write in com
 0. Syntax:
 The head of the file: #!/usr/bin/python # this line tells OS which package to use to run program
 -1 can multiply string but get empty string, but -1 cannot multiply None.
+
+absolute path: it specifies the full path, from the top-level (“root”) directory.
+relative path: specifies a location in the directory structure relative to the current working directory.
+	
 import os 
 get the current work directory:	os.getcwd( )
 get the absolute path: os.path.abspath('filename')
