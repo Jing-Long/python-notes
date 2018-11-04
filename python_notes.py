@@ -308,7 +308,25 @@ global namespace: is created when the program (or the python interpreter) starts
 	     -Can use key in dictionary to check the existence of key. 
 	value: -can be any types, including mutable objects. 
 	       -Values can be of any type, even a dictionary (mutable).
-	       -The same value can be associated with several different keys.
+	       -The same value can be associated with several di
+    i = 0
+    if i == len(seq) - 1: # if only one element in the seq
+        return seq[0] # return this element
+    else:
+        first = seq[i]
+        i = i + 1
+        max_of_rest = find_max(seq[i:])
+    return max(first, max_of_rest)
+
+def find_max1(seq):
+    return max(seq)
+
+def find_max2(seq):
+    max_value=seq[0]
+    for item in seq:
+        if item>max_value:
+            max_value=item
+    return max_valuefferent keys.
 	       -Cannot use value in dictionary to check the existence of value. 
 		Can set values=dict.values, then use value in values to check the existence of value.
 	methods:
@@ -417,8 +435,9 @@ global namespace: is created when the program (or the python interpreter) starts
 		like lists but immutable (can not be reassigned once created but can be replaced).
 		 t = ('a', 'b', 'c', 'd', 'e') then t = ('A',) + t[1:] gives t==('A', 'b', 'c', 'd', 'e').
 	       Syntactically, a tuple is a comma-separated list of values, but it is common to enclose tuples in parentheses.
+		 It is the comma that creates the tuple, not the parentheses! t=,,,, can define a tuple.
 	       Create a tuple with a single element, have to include a final comma: t1='a', then type(t1)==tuple
-		 t2=('a') then type(t2)==str.
+		 t2=('a') then type(t2)==str. type((1))==int, type(1,)==int, type((1,))==tuple. Create a empty tuple: x=().  	       
 	       If the argument of a tuple is a sequence (string, list or tuple), the result is a tuple with the elements of
 		the sequence: t = tuple('lupins') then t==('l', 'u', 'p', 'i', 'n', 's').
 	       Tuple assignment: to swap values of two variables: a,b=b,a.
