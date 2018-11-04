@@ -124,9 +124,14 @@ Number in base b:
 	- Rounding to p+1 digits in base b, the  absolute error is ≤ 1/2 b^{-p}· b^e,
 	                                    the relative error is ≤ 1/2 b^{-p}.
 	
+object: every value computed by the interpreter is an object. An object in python has an id and some attributes, like type.
+	When we assign a value to variable, the variable name is associated with a reference to the object;
+	that is objects id. Several variables can refer to the same objects.
+id: identity, this is a number assigned by the python interpreter when an object is created. Can acess using id function.
+	
 Immutable objects never change id. 
 	Operations on immutable objects create new objects, leaving the original unchanged: tuple.
-Mutable objects can change id. A mutable object can be modified yet it’s identity remains the same.
+Mutable objects: A mutable object can be modified of its attributes yet it’s identity remains the same.
 	mutable types: ndarray, list, set, dictionary, user-defined class
 hashable: Immutable types like integers, floats and strings are hashable;
 	  mutable types like lists and dictionaries are not.
@@ -377,7 +382,7 @@ Abstract data types(ADT): the set of operations that can be done on values of th
 		        a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
         .is_lower(): Return true if all cased charaprint(index, element)cters in the string are lowercase.
-   b. list[]: can contain a mix of value types. [,,,] 
+   b. list[]: can contain elements of any type-including a mix of elements of different types in the same list. [,,,]mutable.
 	     Since lists are mutable, it is often useful to make a copy before performing operations that modify lists.
 	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
 	Indexing a list returns an element, but slicing a list returns a list.
