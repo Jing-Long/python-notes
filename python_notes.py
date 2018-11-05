@@ -367,22 +367,24 @@ def find_max2(seq):
     a. with open("filename.txt") as file: # with statement will automatically close the file.
             data = file.read()
     b. import csv
-       with open('filename.csv") as file:
-	    reader=csv.reader(file)
- 	    data=[row for row in reader]
-       After reading the file, all entries in all rows will be strings!
-       If the file contains a header, the first row in table will contain this header.
-		 Can use slicing to get a table without the header.
-       Use list comprehension to 
-		extract single column, for example, [ row[3] for row in table ].
-		select rows/columns with certain criterion, for example not having any blank fields: 
-		                                              [ row for row in table if row[3] != '' ].
-		create a list of the indicies of rows in table that have a non-empty value in column 3:
+       Open file:
+       	         with open('filename.csv") as file:
+	   	      reader=csv.reader(file)
+ 	              data=[row for row in reader]
+                 After reading the file, all entries in all rows will be strings!
+       Write file:
+		  with open('filename.csv','a or w') as csvfile:
+       		       csvwriter=csv.writer(csvfile)
+       		       csvwriter.writerow([time,altitude,velocity])		 
+       If the file contains a header, the first row in table will contain this header. Can use slicing to get a table without header.
+       Use list comprehension to extract single column, for example, [ row[3] for row in table ].
+	   Select rows/columns with certain criterion, for example not having any blank fields: [ row for row in table if row[3] != '' ].
+	   Create a list of the indicies of rows in table that have a non-empty value in column 3:
 						 [ i for i in range(len(table)) if table[i][3] != '' ].
-		convert data type, for example:[ [ row[0], row[1], float(row[2]), int(row[3]) ] for row in table ],
-		     but try to convert and empty string into a number (int or float) will cause a runtime error. 
-		     One way to solve this is to filter out rows with empty entries first and then convert those that remain.
-		     Or use a self-defined function: [ my_fun(row[3]) for row in table ].
+	   Convert data type, for example:[ [ row[0], row[1], float(row[2]), int(row[3]) ] for row in table ],
+	    but try to convert and empty string into a number (int or float) will cause a runtime error. 
+	   One way to solve this is to filter out rows with empty entries first and then convert those that remain.
+	   Or use a self-defined function: [ my_fun(row[3]) for row in table ].
 
 4. Sequence: contains zero or more values. Each value has an integer index: sequence[index]. Iterable data type.
          [index] # Index must be an interger ranges from -n (first value) through -1 (last value) & 0 (first value) 
