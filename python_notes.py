@@ -515,7 +515,9 @@ Sequence comparisons: based on character encoding.
 	 else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
 	      # If there is no indent, the else matchs with the closest if above.
 	 Avoid nested conditonals to make code easier to be understood.
-   b. loop statement (iteration):
+   b. loop statement (iteration): 
+      iterable types: A file is a sequence of bytes, but python's file object is not a sequence type. 
+			   File objects in python are iterable, but not sequences.
       for i in range(integer number): 
 		 executes a suite once for every element of a sequence, works on any iterable types.
 			# The for loop is simpler to use, but only allows you to look at one element at a time.
