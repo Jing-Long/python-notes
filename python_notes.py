@@ -310,25 +310,7 @@ global namespace: is created when the program (or the python interpreter) starts
 	     -Can use key in dictionary to check the existence of key. 
 	value: -can be any types, including mutable objects. 
 	       -Values can be of any type, even a dictionary (mutable).
-	       -The same value can be associated with several di
-    i = 0
-    if i == len(seq) - 1: # if only one element in the seq
-        return seq[0] # return this element
-    else:
-        first = seq[i]
-        i = i + 1
-        max_of_rest = find_max(seq[i:])
-    return max(first, max_of_rest)
-
-def find_max1(seq):
-    return max(seq)
-
-def find_max2(seq):
-    max_value=seq[0]
-    for item in seq:
-        if item>max_value:
-            max_value=item
-    return max_valuefferent keys.
+	       -The same value can be associated with several different keys.
 	       -Cannot use value in dictionary to check the existence of value. 
 		Can set values=dict.values, then use value in values to check the existence of value.
 	methods:
