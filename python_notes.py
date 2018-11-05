@@ -29,18 +29,16 @@ Path:
 	  Single directory tree. File and directory names are case sensitive.
 	  For example, /students/u5869920/test.py
     Windows: 
-	  One directory tree for each drive (A to Z). 
 	  Absolute path starts with drive letter and ':', like C:.
-	  The separator is '\', but must write '\\' in python because '\' has its meaning in python.
-	  '..' means the directory above. File and directory names are not case sensitive.
+	  The separator is '\', but must write '\\' in python because '\' has its meaning in python. '..' means the directory above.
+	  One directory tree for each drive (A to Z). File and directory names are not case sensitive.
 	  For example, C:\\Users\\u5869920\\test.py  ..\\lab1\\exercise1.py
 
-whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement
-	    or indentation. At other times, whitespace is ignored.
-	    
-            
+whitespace: spaces, tab, end-of-line are whitespace and they are used to show the end of a statement or indentation.
+	    At other times, whitespace is ignored.
+	               
 Indent can be a tab or any spaces>=1, but the convention is 4 spaces.
-Single and double quotes are the same in python,use double quotes when there is an apostrophe in string. 
+Single and double quotes are the same in python, use double quotes when there is an apostrophe in string. 
 Straight quotes ' ' " " are legal in python. Curly quotes  ‘ ’ “ ” are not. 
 
 Continuation: add a \ at the end makes the statement continue onto the next line
@@ -49,15 +47,15 @@ hash sign (#): marks the beginning of a comment; it continues to end-of-line.
 input()
 	
 Errors: -Syntax errors # are shown in spyder before running the code
-	-Runtime errors # code is syntactically valid, but operation is impossible for python 
-		        # interpreter, so they will cause an exception.
+	-Runtime errors # code is syntactically valid, but operation is impossible for python interpreter,
+		        # so they will cause an exception.
 	*Exception names:-TypeError, ValueError (incorrect type or value for operation)
 			 -NameError, UnboundLocalError, AttributeError
 			  (variable or function name not defined)
-			 -IndexError (invalid sequence index)
+			 -IndexError (invalid sequence index) E.g. [] input can incur Index error
 			 -KeyError (key not in dictionary)
 			 -ZeroDivisionError,etc.
-			E.g. [] input can incur Index error
+			
 	-Semantic/logic errors: code runs without error, but does the wrong thing,
 				like returns the wrong answer. For example,
 			        filereadline() move the file position to the end.
