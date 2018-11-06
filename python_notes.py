@@ -68,6 +68,7 @@ Raising Exception:
   -assert condition, "fail message" # Code Defensively, check violated assumptions.
    If can’t compute a correct value, raise an exception! But don’t assert more than what is necessary.
    Use assertions for conditions that would otherwise not generate an error, or one that's difficult to diagnose.
+   Don’t use assertions for conditions that will result in a runtime error anyway (typically, type errors).
   - For example, don’t restrict input types if the function works for any sequence type.
     A good case for an assertion would be something where the function will fail silently 
 	(i.e., not raise an error but return the wrong result).
