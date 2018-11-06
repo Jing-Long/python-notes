@@ -170,7 +170,7 @@ global namespace: is created when the program (or the python interpreter) starts
 	   For integer: 027 = 23 # because this number with base of 8 rather than 10
 	   For decimal: 027.= 27.0 # this number is still with base of 10
 	   In python 2.x, 10/3=3, 10//3=3, 10./3.=3.3333333333333335, 10/3.=3.3333333333333335, 
-	                  so it is better to do this in the code: from future import division, 
+	                  so it is better to do this in the code: from __future__ import division, 
 			  then we can use division directly: 10/3=3.3333333333333335.   
 	   In python 3.x, the result of division is always a float. type(4/2)==float, type(4//2)==int
 	   Floats can be written in scientific notation: 1e30 mean 1*10^{30}, but it is a float. 
