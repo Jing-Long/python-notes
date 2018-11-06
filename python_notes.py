@@ -27,7 +27,7 @@ Path:
     Linux and macOS: 
 	  An absolute path starts with a '/', the separator is '/', '..' means the directory above.
 	  Single directory tree. File and directory names are case sensitive.
-	  For example, /students/u5869920/test.py
+	  For example, /students/u5869920/test.py ../comp1730/lab8/
     Windows: 
 	  Absolute path starts with drive letter and ':', like C:.
 	  The separator is '\', but must write '\\' in python because '\' has its meaning in python. '..' means the directory above.
@@ -137,9 +137,9 @@ object: every value computed by the interpreter is an object. An object in pytho
 id: identity, this is a number assigned by the python interpreter when an object is created. Can access using id() function.
 	
 Immutable objects never change id. 
-	Operations on immutable objects create new objects, leaving the original unchanged: tuple.
+	Operations on immutable objects create new objects, leaving the original unchanged: tuple, string, integer.
 Mutable objects: A mutable object can be modified of its attributes yet it’s identity remains the same.
-	mutable types: ndarray, list, set, dictionary, user-defined class
+	mutable types: ndarray, list, set, dictionary, user-defined class, immutable contains mutable.
 hashable: Immutable types like integers, floats and strings are hashable;
 	  mutable types like lists and dictionaries are not.
 Abstract data types(ADT): the set of operations that can be done on values of the type.
