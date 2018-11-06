@@ -67,7 +67,12 @@ Errors: -Syntax errors # are shown in spyder before running the code
 Raising Exception:
   -assert condition, "fail message" # Code Defensively, check violated assumptions.
    If can’t compute a correct value, raise an exception! But don’t assert more than what is necessary.
+   Use assertions for conditions that would otherwise not generate an error, or one that's difficult to diagnose.
   - For example, don’t restrict input types if the function works for any sequence type.
+    A good case for an assertion would be something where the function will fail silently 
+	(i.e., not raise an error but return the wrong result).
+	For example, a restriction that an argument should be a positive number.
+	
     # Evaluate condition (to type bool), if the value is not True, raise an AssertionError
     # with the (optional) message.
    It is used to check programmers's assumptions: including correct use of functions, like make sure
@@ -86,7 +91,7 @@ Exception handling: catch the abnormal actions,
 		    * Execute suite.
 		    * If no exception arises, skip error-handling suite and continue as normal.
 		    * If the named exception arises from executing suite immediately execute
-		      errorhandlingsuite, then continue as normal.
+		      error-handling suite, then continue as normal.
 		    * If any other error occurs, fail as normal.
 		     try:
 			 suite
@@ -378,7 +383,7 @@ global namespace: is created when the program (or the python interpreter) starts
 		backslash (\): 'it\'s true'.
 		Escapes are used also for some non-printing characters: for example, \n is line break. 
    string methods: similar to a function but use dot notation. string.method(). To use help: help(str.method).
-		   returns a  new string and leave the original alone.
+		   returns a new string and leave the original unchanged.
         .capitalize() Return a copy of the string with its first character capitalized and the rest lowercased.
         .title() Return a copy of the string with its first character and first character after ' ' capitalized 
 		 and the rest lowercased.
@@ -390,7 +395,7 @@ global namespace: is created when the program (or the python interpreter) starts
          str1 in str2:  a boolean operator that takes two strings and returns True if the first appears as
 		        a substring in the second.
         .count(substring,start,end): Return the number of occurrences of substring in the range [start, end]. 
-        .is_lower(): Return true if all cased charaprint(index, element)cters in the string are lowercase.
+        .is_lower(): Return true if all cased characters in the string are lowercase.
    b. list[]: can contain elements of any type-including a mix of elements of different types in the same list. [,,,]mutable.
 	     Since lists are mutable, it is often useful to make a copy before performing operations that modify lists.
 	     list("abcd")==[’a’, ’b’, ’c’, ’d’]
@@ -404,8 +409,8 @@ global namespace: is created when the program (or the python interpreter) starts
 	     Most list methods are void; they modify the list and return None, so don't write alist=alist.method().
 	A list contains references to its elements. 
 		 Two lists can be equivalent, which means elements are the same, 
-		 but they can be not identical when they 
-		     they are not the same object.
+		 but they can be not identical when they they are not the same object.
+		     
 	Aliasing: An object with more than one reference has more than one name, so we say that the object is aliased.
 		 If the aliased object is mutable, changes made with one alias affect the other.  
 		 In general, it is safer to avoid aliasing when working with mutable objects.
@@ -423,7 +428,7 @@ global namespace: is created when the program (or the python interpreter) starts
 	       Syntactically, a tuple is a comma-separated list of values, but it is common to enclose tuples in parentheses.
 		 It is the comma that creates the tuple, not the parentheses! t=,,,, can define a tuple.
 	       Create a tuple with a single element, have to include a final comma: t1='a', then type(t1)==tuple
-		 t2=('a') then type(t2)==str. type((1))==int, type(1,)==int, type((1,))==tuple. Create a empty tuple: x=().  	       
+		 t2=('a') then type(t2)==str. type((1))==int, type(1,)==int, type((1,))==tuple. Create an empty tuple: x=().  	       
 	       If the argument of a tuple is a sequence (string, list or tuple), the result is a tuple with the elements of
 		the sequence: t = tuple('lupins') then t==('l', 'u', 'p', 'i', 'n', 's').
 	       Tuple assignment: to swap values of two variables: a,b=b,a.
@@ -434,14 +439,14 @@ global namespace: is created when the program (or the python interpreter) starts
 		      contains one element from each sequence. For example, zip(seq_a,seq_b).
 		    If the sequences are not the same length, the result has the length of the shorter one. 
 		    Can’t use an index to select an element from a zip object, but can use for x,y in zip(t1,t2). 
-		    Enumerate: for index, element in enumerate('abc'): print(index, element).
+		    Enumerate: for index, element in enumerate('abc'): print(index, element) gives 0 a 1 b 2 c.
 	       In a return statement, it is syntactically simpler to create a tuple than a list.
 	       If you are passing a sequence as an argument to a function, using tuples reduces the
 		    potential for unexpected behavior due to aliasing.
    d. NumPy arrays: numpy.ndarray (n-dimensional array data type). All values must be the same type. 
 		    len(array) is the size of first dimension. array.shape is a sequence of the size in each dimension.
 		    array[i,j]==array[i][j], array[i,:]==array[i] is row i, array[:,j] is column j.
-		    np.array([,,,]), np.zeros(size), np.ones(size)*number, np.linspace(start,end,size)
+		    np.array([,,,]), np.zeros(size), np.ones(size)*number. np.linspace(start,end,size) gives float array.
 	     
    Warning：For list, list[]+list[] is just the concatenation of two lists.
 	    For example, [1,2]+[2,3]==[1,2,3,4], [1,2]*2=[1,2,1,2] but [1,2]+2 is not allowed(cannot concatenate).
@@ -454,8 +459,8 @@ global namespace: is created when the program (or the python interpreter) starts
    slicing: access a subsequence by indexing a range of positions: sequence[start:end]
             The type of slice is still the type of original type of sequence, even only has one element. 
 		 Slicing a list returns a list.
-		      For example, if type(x) == str then type(x[i:i+1]) == str, if type(x) == list
-		 then type(x[i:i+1]) == list.
+		      For example, if type(x) == str then type(x[i:i+1]) == str. 
+				   if type(x) == list then type(x[i:i+1]) == list.
       seq[ start : end : stepsize ]
 	  if stepsize is > 0, take every stepsize:th element, start from left, up to, but not including the element
 	     at right index, if start is at the right of end, returns empty string ''.
@@ -467,7 +472,7 @@ global namespace: is created when the program (or the python interpreter) starts
 	       string[:m] # the slice starts at the beginning of the string.
 	       string[n:] # the slice goes to the end of the string
 	       string[:] # returns the whole string
-	    Python interprets anegative step number as stepping backward.
+	    Python interprets a negative step number as stepping backward.
        	       string[::-1] generates a reversed string.
 	       string[::-2] # backwards, every other letter
 	       s[-1:len(s)]='last character of s' because it starts from -1 then go to len(s)-1 
@@ -495,9 +500,13 @@ Sequence comparisons: based on character encoding.
 	 else # If there is an else clause, it has to be at the end, but there doesn’t have to have one.
 	      # If there is no indent, the else matchs with the closest if above.
 	 Avoid nested conditonals to make code easier to be understood.
-   b. loop statement (iteration): 
-      iterable types: A file is a sequence of bytes, but python's file object is not a sequence type. 
-			   File objects in python are iterable, but not sequences.
+   b. loop statement (iteration):
+      A iterable is anything that can loop over with a for loop in python. 
+       It is not always indexable, it doesn't always have lengths or finite.
+      iterable types: All sequences are iterbale: string, list, tuple, set.
+		      Non-sequence: dictionary, file objects, class.
+			A file is a sequence of bytes, but python's file object is not a sequence type. 
+			  
       for i in range(integer number): 
 		 executes a suite once for every element of a sequence, works on any iterable types.
 			# The for loop is simpler to use, but only allows you to look at one element at a time.
