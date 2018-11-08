@@ -353,11 +353,11 @@ global namespace: is created when the program (or the python interpreter) starts
     a. with open("filename.txt") as file: # with statement will automatically close the file.
             data = file.read()
     b. import csv
-       Open file:
-       	       with open('filename.csv") as file:
-	   	      reader=csv.reader(file)
- 	              data=[row for row in reader]
-                 After reading the file, all entries in all rows will be strings!
+       Open file: with open('filename.csv") as file:
+       	       		reader=csv.reader(file)
+			data=[row for row in reader]
+ 		 After reading the file, all entries in all rows will be strings!             
+                 
        Write file:
 		  with open('filename.csv','a or w') as csvfile:
        		       csvwriter=csv.writer(csvfile)
