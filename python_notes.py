@@ -354,7 +354,7 @@ global namespace: is created when the program (or the python interpreter) starts
             data = file.read()
     b. import csv
        Open file:
-       	         with open('filename.csv") as file:
+       	       with open('filename.csv") as file:
 	   	      reader=csv.reader(file)
  	              data=[row for row in reader]
                  After reading the file, all entries in all rows will be strings!
