@@ -1,5 +1,11 @@
 % is just used as a comment symbol in this note, it has nothing to do with bash syntax!
+echo $SHELL % gives /bin/bash, it means the file bash is the Bash program that starts a Bash shell.
 chmod +x file_name  % make this file executable
+rsync % this is a program to copy and synchronise files between computers
+gnuplot % this is a plotting package
+man [command] % bring up the manual page of a program/command to learn about 
+                possible command-line options for shell program(s)
+
 Files start with #! (called hashbang) in first line and have been made executable can be run with ./file_name directly.
 
 Simple command:[ variable=value ... ] command name [ command arguments ... ] [ redirection operations... ] 
