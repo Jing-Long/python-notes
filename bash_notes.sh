@@ -3,6 +3,7 @@
 man [command] % bring up the manual page of a program/command to learn about 
                 possible command-line options for shell program(s)
 
+echo $PATH % shows the system path where bash to search for the command name you type in. 
 echo $SHELL % gives /bin/bash, it means the file bash is the Bash program that starts a Bash shell.
 ~ % a shortcut to access home directory, can use echo $HOME to find the home directory
 .file_name % means this file is hidden. 
@@ -21,17 +22,20 @@ ls -l % gives a list which begins with file type and permissions.
      
 source .bashrc or restart Bash or open a new Bash shell to activate changes to .bashrc and .alias
 
-chmod +x file_name  % make this file executable
 rsync % this is a program to copy and synchronise files between computers
 gnuplot % this is a plotting package
 ssh % connect to another computer.
 ssh -X or -Y % forward graphical windows from the connected computer to my local machine through the SSH connection.      
 
+type arguments % describes how arguments would be interpreted if used as command names.
+type -a command % prints  all of the places that contain an executable command. This includes aliases and functions.
 
 
 
-
-Files start with #! (called hashbang) in first line and have been made executable can be run with ./file_name directly.
+script start with #! (called hashbang) in first line and have been made executable can be run with ./file_name directly.
+                  chmod +x file_name  % make this file executable
+                  % script example: #!/usr/bin/env bash
+                                    code and command
 
 Simple command:[ variable=value ... ] command name [ command arguments ... ] [ redirection operations... ] 
                % = means variable assignments, [] means optional, ... means can be repeated many times.
