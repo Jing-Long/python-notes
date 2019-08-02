@@ -30,12 +30,39 @@ ssh -X or -Y % forward graphical windows from the connected computer to my local
 type arguments % describes how arguments would be interpreted if used as command names.
 type -a command % prints  all of the places that contain an executable command. This includes aliases and functions.
 
-
-
 script start with #! (called hashbang) in first line and have been made executable can be run with ./file_name directly.
                   chmod +x file_name  % make this file executable
                   % script example: #!/usr/bin/env bash
                                     code and command
+rm % remove 
+cp % copy
+blank space(space or tab) can be used to separate multiple arguments.
+Escaping is putting a \ character in front of the character tells that we want to make literal. Not recommended.
+Quoting is wrapping " " or ' ' characters around the text that we want to make literal. Recommended. Be cautious!
+        % use "double quotes" for any argument that contains expansions, such as $variable or $(command) expansions.
+        % use 'single quotes' for any other arguments. 
+        Single quotes make sure that everything in the quotes remains literal
+        while double quotes still allow some bash syntax such as expansions.
+
+file descriptors: standard input (FD 0), standard output (FD 1) and standard error (FD 2).
+operator x>file % write FD x to file, it is defaulted to write FD 1 (standard output) to the file if x is not specified.
+         2>file % specifically redirect FD2 (standard error) to the file.
+         x<file % read FD x from file, it is defaulted to read FD 0 (standard input) from the file if x is not specified.
+         >& % prefix it with the file descriptor we want to change 
+             and follow it with the file descriptor whose stream we need to "copy".
+         x>&y % Make FD x write to FD y's stream.
+         x<&y % Make FD x read from FD y's stream.
+         Example: 2>&1 means Make FD 2 write(>) to where FD(&) 1 is currently writing.
+         &>file % the same as >file 2>&1, make both FD 1 (standard output) and FD 2 (standard error) write to file.
+         x>>file % Make FD x append to the end of file.
+         &>>file % Append both FD 1 (standard output) and FD 2 (standard error) to the end of file.
+         % > empties the file's contents when it opens the file so that only your bytes will be in the file.
+           >> keeps the file's existing contents and your stream's bytes are added to the end of it.
+/dev/null % a special directory for device files. Device files are special files that represent devices in our system. 
+
+            The null device is a special device that is always empty. Anything you write to it will be lost and nothing
+            can be read from it. That makes it a very useful device for discarding information. 
+            We stream our unwanted error message to the null device and it disappears.
 
 Simple command:[ variable=value ... ] command name [ command arguments ... ] [ redirection operations... ] 
                % = means variable assignments, [] means optional, ... means can be repeated many times.
