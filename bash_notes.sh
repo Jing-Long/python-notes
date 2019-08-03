@@ -3,7 +3,8 @@
 
 man [command] % bring up the manual page of a program/command to learn about 
                 possible command-line options for shell program(s)
-
+cat - concatenate files and print on the standard output
+echo % display a line of text
 echo $PATH % shows the system path where bash to search for the command name you type in. 
 echo $SHELL % gives /bin/bash, it means the file bash is the Bash program that starts a Bash shell.
 ~ % a shortcut to access home directory, can use echo $HOME to find the home directory
@@ -65,6 +66,9 @@ Here documents: <<[-]delimiter % Make FD 0 (standard input) read from the string
 Here strings: <<<string % Make FD 0 (standard input) read from the string, remember to use "" or '' to indicate a string.
 Close file descriptors: x>&- % defaults to close standard output(FD1) when x is omitted.
                         x<&- % defaults to close standard input(FD0) when x is omitted.
+Move file descriptors: [x]>&y- % Replace FD x with FD y.
+                       [x]<&y- % Replace FD x with FD y. 
+Read and write with a file descriptor: [x]<>file % Open FD x for both reading and writing to file.                      
 /dev/null % a special directory for device files. Device files are special files that represent devices in our system. 
 
             The null device is a special device that is always empty. Anything you write to it will be lost and nothing
