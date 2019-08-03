@@ -1,4 +1,5 @@
 % is just used as a comment symbol in this note, it has nothing to do with bash syntax!
+[] means the content in it is optional, do not type [] when actually use the option! 
 
 man [command] % bring up the manual page of a program/command to learn about 
                 possible command-line options for shell program(s)
@@ -56,8 +57,14 @@ operator x>file % write FD x to file, it is defaulted to write FD 1 (standard ou
          &>file % the same as >file 2>&1, make both FD 1 (standard output) and FD 2 (standard error) write to file.
          x>>file % Make FD x append to the end of file.
          &>>file % Append both FD 1 (standard output) and FD 2 (standard error) to the end of file.
-         % > empties the file's contents when it opens the file so that only your bytes will be in the file.
-           >> keeps the file's existing contents and your stream's bytes are added to the end of it.
+          > empties the file's contents when it opens the file so that only your bytes will be in the file.
+          >> keeps the file's existing contents and your stream's bytes are added to the end of it.
+Here documents: <<[-]delimiter % Make FD 0 (standard input) read from the string between the delimiters.
+                here-document
+                delimiter
+Here strings: <<<string % Make FD 0 (standard input) read from the string, remember to use "" or '' to indicate a string.
+Close file descriptors: x>&- % defaults to close standard output(FD1) when x is omitted.
+                        x<&- % defaults to close standard input(FD0) when x is omitted.
 /dev/null % a special directory for device files. Device files are special files that represent devices in our system. 
 
             The null device is a special device that is always empty. Anything you write to it will be lost and nothing
