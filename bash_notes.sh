@@ -1,6 +1,6 @@
 % is just used as a comment symbol in this note, it has nothing to do with bash syntax!
 [] means the content in it is optional, do not type [] when actually use the option! 
-
+                
 man [command] % bring up the manual page of a program/command to learn about 
                 possible command-line options for shell program(s)
 cat - concatenate files and print on the standard output
@@ -10,6 +10,14 @@ echo $SHELL % gives /bin/bash, it means the file bash is the Bash program that s
 ~ % a shortcut to access home directory of current user, can use echo $HOME to find the home directory
 .file_name % means this file is hidden. 
 ls -a % can list all files and directories, including hidden ones.
+
+.bash_profile % it is in the home directory, exports variables into the environment. 
+              % At the end of ~/.bash_profile, should have the command source ~/.bashrc. Because when .bash_profile exists,
+                bash stops looking for its standard shell initialization ~/.bashrc.The source command remedies this oddity.
+              % Both of ~/.bash_profile and ~/.bashrc are run when log into shell to set up the environment of bash,
+                so later shells/teminals will inherit the environment from their login shell ancestor.  
+~/.profile % a generic shell profile configuration file.
+             If there is no ~/.bash_profile file, bash will try to read from ~/.profile instead, if it exists.          
 
 add PS1=’\u@\h:\w>’ to .bashrc % change the Bash console prompt style to username@hostname:current_directory>
 add test -s ~/.alias && . ~/.alias to .bashrc % check whether file .alias exists, if so, run it. This step ensures that
