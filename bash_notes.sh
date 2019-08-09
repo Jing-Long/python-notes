@@ -7,7 +7,7 @@ cat - concatenate files and print on the standard output
 echo % display a line of text
 echo $PATH % shows the system path where bash to search for the command name you type in. 
 echo $SHELL % gives /bin/bash, it means the file bash is the Bash program that starts a Bash shell.
-~ % a shortcut to access home directory, can use echo $HOME to find the home directory
+~ % a shortcut to access home directory of current user, can use echo $HOME to find the home directory
 .file_name % means this file is hidden. 
 ls -a % can list all files and directories, including hidden ones.
 
@@ -45,7 +45,9 @@ Quoting is wrapping " " or ' ' characters around the text that we want to make l
         % use 'single quotes' for any other arguments. 
         Single quotes make sure that everything in the quotes remains literal
         while double quotes still allow some bash syntax such as expansions.
-
+        "Value expansions ($...) must always be double-quoted." Never leave a value expansion unquoted!
+        "Parameter expansions should always be double-quoted."
+        
 file descriptors: standard input (FD 0), standard output (FD 1) and standard error (FD 2).
 operator x>file % write FD x to file, it is defaulted to write FD 1 (standard output) to the file if x is not specified.
          2>file % specifically redirect FD2 (standard error) to the file.
@@ -104,5 +106,23 @@ Functions: group a list of commands under a custom name when need to repeat the 
            self-defined_function_name () compound-command [ redirection ]
            % The parentheses () should always be empty. They simply denote the fact that you are declaring a function.
 
+Pathname expansion: 
+Glob	Meaning
+*	A star or asterix matches any kind of text, even no text at all.
+  ls * % displays all files under current and sub-directories.
+?	A question mark matches any one single character.
+[characters]	A set of characters within rectangular braces matches a single character, only if it's in the given set.
+              % We can use - to indicate a range of characters, for example, [1-9] or [a-z]. Brackets are required here.
+[[:classname:]] classname: alnum, alpha, ascii, blank, cntrl, digit, graph, lower, print, punct, space, upper, word, xdigit.
 
+Shell variables: variable_name=variable_value % Assign a value to the variable name
+                 $variable_name % the way to call this variable, gives the assigned variable value.
+operator = % assignment, bash does not allow space before and after it. 
+Parameter expansion: prefix the variable name with a $ symbol. Can use wrap curly braces ({ and }) around my expansion
+                     to tell bash what the beginning and end of your parameter name is. eg. "${time}s".
+                     Parameter expansions should always be double-quoted for consistency and to prevent any potential white
+                     space in them from causing word-splitting in addition to triggering unexpected pathname completion. 
+                     Applying a special parameter expansion operator can mutate the expanded value in some way without 
+                       changing the original variable value.
+                     variable_name+="string" % += appends the string to the end of current variable value.
 
