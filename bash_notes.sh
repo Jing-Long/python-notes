@@ -133,4 +133,7 @@ Parameter expansion: prefix the variable name with a $ symbol. Can use wrap curl
                      Applying a special parameter expansion operator can mutate the expanded value in some way without 
                        changing the original variable value.
                      variable_name+="string" % += appends the string to the end of current variable value.
+Positional parameters % read-only parameters with a positive integer number, expand it using $number, but bash requires you
+                        to employ curly braces around positional parameters of more than one digit, for example, ${10}, ${22}.                     
 
+                       
