@@ -1,6 +1,9 @@
 % is just used as a comment symbol in this note, it has nothing to do with bash syntax!
 [] means the content in it is optional, do not type [] when actually use the option! 
-                
+
+IDL name convention: lowercase spelling, no spaces, the name of the file the same as 
+                     the name of the command you are trying to build.
+
 man [command] % bring up the manual page of a program/command to learn about 
                 possible command-line options for shell program(s)
 cat - concatenate files and print on the standard output
