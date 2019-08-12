@@ -1,5 +1,6 @@
 % is just used as a comment symbol in this note, it has nothing to do with bash syntax!
 [] means the content in it is optional, do not type [] when actually use the option! 
+white space  and '' "" can make a huge error/difference, do not omit them while following others example!!!
 
 IDL name convention: lowercase spelling, no spaces, the name of the file the same as 
                      the name of the command you are trying to build.
@@ -23,6 +24,8 @@ ls -a % can list all files and directories, including hidden ones.
              If there is no ~/.bash_profile file, bash will try to read from ~/.profile instead, if it exists.          
 
 add PS1=’\u@\h:\w>’ to .bashrc % change the Bash console prompt style to username@hostname:current_directory>
+echo $PS1 % contains a string that describes what the interactive bash shell's prompt should look like.
+echo $PS2 % contains a string that describes what the interactive bash shell's secondary prompt should look like, like >.
 add test -s ~/.alias && . ~/.alias to .bashrc % check whether file .alias exists, if so, run it. This step ensures that
                                                 the content of .alias is read and added to the Bash environment. 
 add in .alias: alias ls='ls --color=auto $OPTIONS' % enable colourised output according to their types, eg. file, folder,etc.
@@ -130,7 +133,19 @@ Glob	Meaning
 
 Shell variables: variable_name=variable_value % Assign a value to the variable name
                  $variable_name % the way to call this variable, gives the assigned variable value.
-operator = % assignment, bash does not allow space before and after it. 
+Internal shell variables are shell variables with ALL-UPPERCASE names. The same for nearly all environment variables. 
+   Should make all of my own shell variables lower-case. If I create an environment variable, give it an ALL-UPPERCASE name.
+operator = % assignment, bash does not allow space before and after it.
+array_variable_name=(variable_value1 variable_value2 'variable value 3') % use echo "${files[@]}" to expand all values.
+                    % spaces are permitted inside the braces to separate the values of the array. When space needs to be part
+                      of the variable's data, it must be quoted so that bash interpretes the space as literal.
+array_variable_name+=( items ) % +=( ) operator can append a list of items to the end of an array.
+array_variable_name=( *.txt ) % add all files end with .txt to the array
+echo "${array_variable_name[0]}" % expand a single item from an array, specify that item's ordinal number, here is 0th.
+echo "$array_variable_name" % gives the expansion of the first item in the array.
+unset "array_variable_name[3]" % use unset to remove a specific item from the array
+                                 Do not use a $ here, since no need to expand the value!   
+echo "${#array_variable_name[@]}" % give the number of items in the array.                               
 Parameter expansion: prefix the variable name with a $ symbol. Can use wrap curly braces ({ and }) around my expansion
                      to tell bash what the beginning and end of your parameter name is. eg. "${time}s".
                      Parameter expansions should always be double-quoted for consistency and to prevent any potential white
@@ -141,4 +156,4 @@ Parameter expansion: prefix the variable name with a $ symbol. Can use wrap curl
 Positional parameters % read-only parameters with a positive integer number, expand it using $number, but bash requires you
                         to employ curly braces around positional parameters of more than one digit, for example,${10},${22}                     
 
-                       
+Special parameters % read-only, like positional parameters can only use them to expand information, not store information.                       
