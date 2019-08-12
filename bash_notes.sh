@@ -58,6 +58,8 @@ Quoting is wrapping " " or ' ' characters around the text that we want to make l
         while double quotes still allow some bash syntax such as expansions.
         "Value expansions ($...) must always be double-quoted." Never leave a value expansion unquoted!
         "Parameter expansions should always be double-quoted."
+        'Whenever we put code in a string (such as in the case of passing it in as an argument),
+         the code should be single-quoted.' Do not use "double quotes" to wrap code strings.
         
 file descriptors: standard input (FD 0), standard output (FD 1) and standard error (FD 2).
 operator x>file % write FD x to file, it is defaulted to write FD 1 (standard output) to the file if x is not specified.
@@ -137,6 +139,6 @@ Parameter expansion: prefix the variable name with a $ symbol. Can use wrap curl
                        changing the original variable value.
                      variable_name+="string" % += appends the string to the end of current variable value.
 Positional parameters % read-only parameters with a positive integer number, expand it using $number, but bash requires you
-                        to employ curly braces around positional parameters of more than one digit, for example, ${10}, ${22}.                     
+                        to employ curly braces around positional parameters of more than one digit, for example,${10},${22}                     
 
                        
