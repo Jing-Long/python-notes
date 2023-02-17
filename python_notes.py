@@ -552,7 +552,15 @@ Sequence comparisons: based on character encoding.
   	   * import sys sys.modules is a dictionary of all loaded modules.
 	   * dir(module) returns a list of names defined in module’s namespace
 	   * dir() lists the current (global) namespace.
-  Package: a collection of modules.
+  Package: a collection of modules. Any directory with an __init__.py file is considered a Python package. Leaving an __init__.py file (almost)
+	   empty is considered standard and even good practice if the package’s modules and sub-packages do not need to share any code.
+	   Directories within the package are subpackages:
+	   package
+	   |-- __init__.py
+	   |-- module.py
+	   |-- sub_package/
+     	 	 |--  __init__.py
+     	 	 |-- sub_module.py
   how to use: import modules/package # or 
               from modules/package import variables, functions, classes
   Import them and then help(modules/package name) or dir(modules/package name) 
