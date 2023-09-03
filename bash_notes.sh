@@ -32,9 +32,13 @@ add in .alias: alias ls='ls --color=auto $OPTIONS' % enable colourised output ac
                alias ll='ls -colorlh $OPTIONS' % defines a new command alias called ll, which calls ls with the additional 
                                                  options -l for long-listing (more details) 
                                                  and -h for human-readable file size output.
-ls -l % gives a list which begins with file type and permissions.
+ls -l % gives a list which begins with file type and permissions. long list with detailed info.
         -rwxrwxrwx % means this is a file, Owner, Group and Other can read(r), write(w) and execute(x) it.
         drwxr--r-- % means this is a directory, Group and Other can only read(r) but not write(-) or execute(-) it. 
+ls -t sort in time sequence
+ls -r reversed time sequence
+ls -ltr check recently changed file
+ls -h check the size of the file
      
 source .bashrc or restart Bash or open a new Bash shell to activate changes to .bashrc and .alias
 
@@ -50,6 +54,19 @@ script start with #! (called hashbang) in first line and have been made executab
                   chmod +x file_name  % make this file executable
                   % script example: #!/usr/bin/env bash
                                     code and command
+wc % word counter gives number of lines, words and characters
+wc -w % gives the word number
+wc -m % gives character number
+wc -l % gives the line number
+
+more % show contents in current window
+cat % show contents in current window
+less % show contents in another window, press q to quit
+
+head filename % list default 10 lines
+head -n number(1,2,..) % print number (1,2,..) lines
+tail -n number(1,2,..) % print number (1,2,..) lines
+
 rm % remove 
 cp % copy
 blank space(space or tab) can be used to separate multiple arguments.
