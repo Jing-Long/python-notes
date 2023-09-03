@@ -652,6 +652,10 @@ Sequence comparisons: based on character encoding.
 16. Pandas: Library for (tabular) data analysis.
 	    - Special types for 1-d (pandas.Series) and 2-d (pandas.DataFrame) data.
 	    - General indexing, selection, alignment, grouping, aggregation.
+
+17. set environment: conda create --name envrionmentname python=3.11
+	To activate this environment, use $ conda activate envrionmentname
+	To deactivate an active environment, use $ conda deactivate
   
 
 
