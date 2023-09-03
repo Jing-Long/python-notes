@@ -1,0 +1,10 @@
+which git % check git existence
+git init % do this in the folder for git
+git config --list
+git config --global user.emial "jingli.astro@gmail.com"
+git checkout -b main % Switched to a master branch 'main'
+git status
+git log
+git add filename
+git commit -m "Notes about this version"
+git diff % see change between different versions
