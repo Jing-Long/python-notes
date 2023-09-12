@@ -656,8 +656,23 @@ Sequence comparisons: based on character encoding.
 17. set environment: conda create --name envrionmentname python=3.11
 	To activate this environment, use $ conda activate envrionmentname
 	To deactivate an active environment, use $ conda deactivate
-  
 
+A typical python project contains the following:
+
+filename	Description
+src/packagename	The actual project source code
+tests/	contains all the unit tests
+docs/	contains all the documentation
+.gitignore	defines rules for your versioning workflow (here git)
+CITATION.cff	specifies how the code should be cited
+CODE_OF_CONDUCT.md	community guidelines, reporting, consequences (example)
+CONTRIBUTING.md	how can users contribute to the code
+LICENSE	defines rules on how your code can be used/modified/distributed
+MANIFEST.in	(optional?) sets files to be distributed with the source distribution (e.g. LICENSE, README)
+README.md	At least contains a project name and a description
+pyproject.toml	is the specified file format of PEP 518 which contains the build system requirements of Python projects.
+setup.py	(not always) contains some specific configuration of the project that the toml file cannot handle (compiled codes etc)
+setup.cfg	specifies package metadata, dependencies, etc.
 
 
 
